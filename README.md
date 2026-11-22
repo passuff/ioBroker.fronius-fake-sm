@@ -33,7 +33,7 @@ Until the adapter is on npm / Latest:
 
 ```bash
 cd /opt/iobroker
-npm i Passuff/ioBroker.fronius-fake-sm --production --prefix .
+npm i passuff/ioBroker.fronius-fake-sm --production --prefix .
 iobroker upload fronius-fake-sm
 iobroker add fronius-fake-sm
 ```

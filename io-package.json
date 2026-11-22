@@ -78,141 +78,6 @@
       "0.5.14": {
         "en": "Audit fixes: local seed calibrate, proxy lifecycle, stale→0 W, Shine HTML≠online",
         "de": "Audit-Fixes: Lokal-Seed-Calibrate, Proxy-Lifecycle, stale→0 W, Shine HTML≠online"
-      },
-      "0.5.13": {
-        "en": "Use night poll when sample stale or near-zero (avoid rate-limit loop)",
-        "de": "Nacht-Poll bei stale/nahe 0 W (weniger Rate-Limit-Schleifen)"
-      },
-      "0.5.12": {
-        "en": "Rate-limit and stale sample as info (not warn)",
-        "de": "Rate-Limit und stale Sample als info (nicht warn)"
-      },
-      "0.5.11": {
-        "en": "Hide internal online/verified flags (no status checkboxes in UI)",
-        "de": "Interne Online/Verified-Flags unsichtbar (keine Status-Tickboxen)"
-      },
-      "0.5.10": {
-        "en": "Local mode without OpenAPI token; no auto-check timeout on mode switch",
-        "de": "Lokal ohne OpenAPI-Token; kein Auto-Check-Timeout beim Umschalten"
-      },
-      "0.5.9": {
-        "en": "Fremd-WR: Cloud or Local path switch; Local tab merged; only selected path shown",
-        "de": "Fremd-WR: Cloud- oder Lokal-Datenweg; Lokal-Tab integriert; nur gewählter Weg sichtbar"
-      },
-      "0.5.8": {
-        "en": "Manual check button labeled + next to status; offline probe returns result not error",
-        "de": "Manuell prüfen neben Status; Offline-Probe als Ergebnis statt Fehler"
-      },
-      "0.5.7": {
-        "en": "Cleaner WR status glow; night/low-light setup hint",
-        "de": "Sauberere WR-Status-Schrift; Hinweis Nacht/zu wenig Licht"
-      },
-      "0.5.6": {
-        "en": "Local connection as switch; only after verified setup; clear stale localEnabled",
-        "de": "Lokale Verbindung als Switch; erst nach Verifizierung; veraltetes localEnabled aus"
-      },
-      "0.5.5": {
-        "en": "Render glowing WR status as styled text (not raw HTML)",
-        "de": "Leuchtender WR-Status als Style statt Roh-HTML"
-      },
-      "0.5.4": {
-        "en": "Auto stick-online check on config open; glowing green/red WR status",
-        "de": "Stick-Online-Check beim Öffnen der Config; grün/rot leuchtender WR-Status"
-      },
-      "0.5.3": {
-        "en": "Fix expert panel contrast (drop secondary color)",
-        "de": "Kontrast Experten-Panel behoben (secondary-Farbe entfernt)"
-      },
-      "0.5.2": {
-        "en": "Expert settings as collapsable panels (default closed), not Admin expert mode",
-        "de": "Experten-Einstellung als aufklappbare Panels (Standard zu), unabhängig vom Admin-Expertenmodus"
-      },
-      "0.5.1": {
-        "en": "Clearer offline messages: wait for green status, no dead-end wake wording",
-        "de": "Klarere Offline-Texte: auf grünen Status warten, kein Sackgassen-Wake-Text"
-      },
-      "0.5.0": {
-        "en": "Local tab rebuilt: login → online → setup → verified switch; experts collapsed",
-        "de": "Lokal-Tab neu: Login → Online → Einrichten → verifizierter Schalter; Experten eingeklappt"
-      },
-      "0.4.9": {
-        "en": "Online status as 🟢/🔴 label instead of checkbox",
-        "de": "Online-Status als 🟢/🔴-Label statt Checkbox"
-      },
-      "0.4.8": {
-        "en": "Background stick-online monitor; setup blocked at night; daylight-only hint (no WR wake)",
-        "de": "Stick-Online-Monitor im Hintergrund; Setup nachts blockiert; nur-Tageslicht-Hinweis (kein WR-Wake)"
-      },
-      "0.4.7": {
-        "en": "Prominent Gen24 Fake-SM add guide; expert sections labeled; defaults-only hint",
-        "de": "Gen24 Fake-SM-Anleitung prominent; Experten-Abschnitte beschriftet; Defaults-Hinweis"
-      },
-      "0.4.6": {
-        "en": "Admin: Local after Modbus; Shine user/pass on Local; encrypt token+user+password; clarify forward",
-        "de": "Admin: Lokal nach Modbus; Shine-User/Pass unter Lokal; Token+User+Passwort verschlüsselt; Forward erklärt"
-      },
-      "0.4.5": {
-        "en": "Local setup only when stick online; German errors; stick status check; fix admin button icons",
-        "de": "Lokal-Setup nur bei Stick online; deutsche Fehler; Stick-Status-Prüfung; Admin-Button-Icons entfernt"
-      },
-      "0.4.4": {
-        "en": "Remote redirect: use SERVERIP paramType; clearer datalog_lost errors (no fake no_ap_stick)",
-        "de": "Remote-Redirect: SERVERIP-paramType; klarere datalog_lost-Fehler (kein falsches no_ap_stick)"
-      },
-      "0.4.3": {
-        "en": "Remote stick redirect via Shine web (no button): cloud pushes reg 17/18; AP scan as fallback",
-        "de": "Remote-Stick-Redirect über Shine-Web (ohne Taste): Cloud schiebt Reg 17/18; AP-Scan als Fallback"
-      },
-      "0.4.2": {
-        "en": "Auto stick setup: one button + AP scan; adapter writes server IP/port (reg 17/18) itself",
-        "de": "Stick-Auto-Setup: ein Button + AP-Scan; Adapter schreibt Server-IP/Port (Reg 17/18) selbst"
-      },
-      "0.4.1": {
-        "en": "Local proxy hardening: calibrate gate, admin IP card, ping ACK, fail lastError, python roundtrip test",
-        "de": "Local-Proxy gehärtet: Kalibrier-Gate, Admin-IP-Karte, Ping-ACK, Fail-lastError, Python-Roundtrip-Test"
-      },
-      "0.4.0": {
-        "en": "Optional local Growatt stick proxy (:5279): one toggle, auto-calibrate, cloud stays default",
-        "de": "Optionaler lokaler Growatt-Stick-Proxy (:5279): ein Schalter, Auto-Kalibrierung, Cloud bleibt Default"
-      },
-      "0.3.6": {
-        "en": "Simplified admin (Fremd-WR / Modbus); encrypt token; master auto-pick; calmer Growatt cooldown",
-        "de": "Admin vereinfacht (Fremd-WR / Modbus); Token verschlüsselt; Master-Autoauswahl; ruhigerer Growatt-Cooldown"
-      },
-      "0.3.5": {
-        "en": "Admin: Gen24 Technician setup hint; clamp defaults port 502 / unit 3 / Location 3",
-        "de": "Admin: Gen24-Techniker-Einrichtungshinweis; Defaults Port 502 / Unit 3 / Location 3 absichern"
-      },
-
-      "0.3.4": {
-        "en": "Fix TS65A-3 identity registers for jsmodbus; Gen24 accepts Fake SM as secondary on unit 3",
-        "de": "TS65A-3 Identitätsregister für jsmodbus korrigiert; Gen24 akzeptiert Fake-SM als Sekundär auf Unit 3"
-      },
-
-      "0.3.3": {
-        "en": "Gen24 secondary Modbus unit default 3 (1 reserved for primary); connection logging",
-        "de": "Gen24 Sekundär-Modbus-Unit Default 3 (1=Primär); Verbindungs-Logging"
-      },
-
-      "0.3.2": {
-        "en": "Stale energy freeze; poll 60s; Fronius meter count/locations + DNS hostname",
-        "de": "Stale-Energie-Freeze; Poll 60s; Fronius Zähleranzahl/Locations + DNS-Hostname"
-      },
-      "0.3.1": {
-        "en": "Growatt 429/FREQUENTLY_ACCESS: backoff, fewer type probes, delayed first poll",
-        "de": "Growatt 429/FREQUENTLY_ACCESS: Backoff, weniger Typ-Probes, verzögerter Erstpoll"
-      },
-      "0.3.0": {
-        "en": "Fronius LAN discovery: pick inverter, auto Fake-SM defaults (port/Location)",
-        "de": "Fronius-LAN-Suche: WR wählen, Fake-SM-Defaults (Port/Location) automatisch"
-      },
-      "0.2.0": {
-        "en": "Admin: manufacturer + search + multi-device checkbox table; sum into one Fake SM",
-        "de": "Admin: Hersteller + Suche + Multi-Geräte-Checkboxen; Summe in ein Fake-SM"
-      },
-      "0.1.0": {
-        "en": "Initial release: Growatt OpenAPI + in-process Fronius TS65A-3 Modbus TCP slave",
-        "de": "Erstes Release: Growatt OpenAPI + eingebetteter Fronius TS65A-3 Modbus-TCP-Slave"
       }
     },
     "titleLang": {
@@ -235,7 +100,7 @@
     "type": "energy",
     "icon": "fronius-fake-sm.png",
     "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/Passuff/ioBroker.fronius-fake-sm/main/admin/fronius-fake-sm.png",
+    "extIcon": "https://raw.githubusercontent.com/passuff/ioBroker.fronius-fake-sm/main/admin/fronius-fake-sm.png",
     "keywords": [
       "fronius",
       "smartmeter",
@@ -243,7 +108,7 @@
       "modbus",
       "bkw"
     ],
-    "readme": "https://github.com/Passuff/ioBroker.fronius-fake-sm/blob/main/README.md",
+    "readme": "https://github.com/passuff/ioBroker.fronius-fake-sm/blob/main/README.md",
     "loglevel": "info",
     "tier": 3,
     "compact": true,
@@ -255,7 +120,7 @@
     },
     "dependencies": [
       {
-        "js-controller": ">=5.0.0"
+        "js-controller": ">=5.0.19"
       }
     ]
   },
@@ -281,7 +146,6 @@
     "stickCloudOnline": false,
     "stickOnlineLabel": "WR nicht verbunden",
     "stickStatusText": "",
-
     "devices": [],
     "powerFields": "ppv,pac,outPower,powerOfPhotovoltaic,chargePower",
     "powerSign": -1,
