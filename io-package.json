@@ -1,0 +1,736 @@
+{
+  "common": {
+    "name": "fronius-fake-sm",
+    "version": "0.5.32",
+    "news": {
+      "0.5.32": {
+        "en": "Skip Gen24 native persist when lastPublished unchanged (stops restart loop)",
+        "de": "Kein Gen24-Native-Persist wenn lastPublished unverändert (stoppt Restart-Loop)"
+      },
+      "0.5.31": {
+        "en": "Gap fix: keep Gen24 baselines on restart; lastPublished←relSum fail-safe; tests",
+        "de": "Gap-Fix: Gen24-Baselines beim Restart behalten; lastPublished←relSum Fail-safe; Tests"
+      },
+      "0.5.30": {
+        "en": "Never adopt Gen24 0 kWh as truth when a prior Fake-SM counter exists",
+        "de": "Gen24 0 kWh nie als Truth übernehmen, wenn ein früherer Fake-SM-Zähler existiert"
+      },
+      "0.5.29": {
+        "en": "Ignore Gen24 transient 0 kWh after Modbus reconnect; require stable Loc3 reading",
+        "de": "Ignoriert Gen24-Transient 0 kWh nach Modbus-Reconnect; stabile Loc3-Lesung nötig"
+      },
+      "0.5.28": {
+        "en": "Wait for Gen24 Modbus client before Solar-API energy truth seed",
+        "de": "Wartet auf Gen24-Modbus-Client vor Solar-API-Energie-Truth-Seed"
+      },
+      "0.5.27": {
+        "en": "Gen24 truth seed after Modbus up + retries (Loc3 may drop during restart)",
+        "de": "Gen24-Truth-Seed nach Modbus-Start + Retries (Loc3 kann beim Restart kurz fehlen)"
+      },
+      "0.5.26": {
+        "en": "On every start: seed Fake-SM energy from Gen24 Solar API (Location meter truth)",
+        "de": "Bei jedem Start: Fake-SM-Energie vom Gen24 Solar-API-Zähler (Location) seeden"
+      },
+      "0.5.25": {
+        "en": "Fix lastPublished: Number(null) must not seed eProduced at 0",
+        "de": "Fix lastPublished: Number(null) darf eProduced nicht mit 0 seeden"
+      },
+      "0.5.24": {
+        "en": "Auto eTotal baselines per device + lastPublished continuity (fail-safe vs Fronius jumps)",
+        "de": "Auto-eTotal-Baselines pro Gerät + lastPublished-Kontinuität (Fail-safe gegen Fronius-Sprünge)"
+      },
+      "0.5.23": {
+        "en": "Expert UI split: source fetch / pipeline / Fake SM; clearer eTotal offset help",
+        "de": "Experten-UI: Quelle Abruf / Pipeline / Fake-SM; klarere eTotal-Offset-Hilfe"
+      },
+      "0.5.22": {
+        "en": "Growatt Cloud header with small logo",
+        "de": "Growatt Cloud Header mit kleinem Logo"
+      },
+      "0.5.21": {
+        "en": "Growatt Cloud header + fixed dropdown icon (base64)",
+        "de": "Growatt-Cloud-Header + Dropdown-Icon per Base64 repariert"
+      },
+      "0.5.20": {
+        "en": "Remove oversized Growatt static images; keep select icon only",
+        "de": "Übergroße Growatt-Bilder entfernt; nur Select-Icon behalten"
+      },
+      "0.5.19": {
+        "en": "Growatt manufacturer icon in admin selection",
+        "de": "Growatt-Hersteller-Icon in der Admin-Auswahl"
+      },
+      "0.5.18": {
+        "en": "Updated adapter icon",
+        "de": "Aktualisiertes Adapter-Icon"
+      },
+      "0.5.17": {
+        "en": "New adapter icon (Fronius chart/sun)",
+        "de": "Neues Adapter-Icon (Fronius Chart/Sonne)"
+      },
+      "0.5.16": {
+        "en": "Local calibrate: one-shot OpenAPI truth + seed retry until lock",
+        "de": "Lokal-Calibrate: OpenAPI-Truth einmalig + Seed-Retry bis Lock"
+      },
+      "0.5.15": {
+        "en": "Keep rate-limit cooldown after partial poll; preserve Modbus port on discover",
+        "de": "Rate-Limit-Cooldown nach Teilsample behalten; Modbus-Port bei Discover erhalten"
+      },
+      "0.5.14": {
+        "en": "Audit fixes: local seed calibrate, proxy lifecycle, stale→0 W, Shine HTML≠online",
+        "de": "Audit-Fixes: Lokal-Seed-Calibrate, Proxy-Lifecycle, stale→0 W, Shine HTML≠online"
+      },
+      "0.5.13": {
+        "en": "Use night poll when sample stale or near-zero (avoid rate-limit loop)",
+        "de": "Nacht-Poll bei stale/nahe 0 W (weniger Rate-Limit-Schleifen)"
+      },
+      "0.5.12": {
+        "en": "Rate-limit and stale sample as info (not warn)",
+        "de": "Rate-Limit und stale Sample als info (nicht warn)"
+      },
+      "0.5.11": {
+        "en": "Hide internal online/verified flags (no status checkboxes in UI)",
+        "de": "Interne Online/Verified-Flags unsichtbar (keine Status-Tickboxen)"
+      },
+      "0.5.10": {
+        "en": "Local mode without OpenAPI token; no auto-check timeout on mode switch",
+        "de": "Lokal ohne OpenAPI-Token; kein Auto-Check-Timeout beim Umschalten"
+      },
+      "0.5.9": {
+        "en": "Fremd-WR: Cloud or Local path switch; Local tab merged; only selected path shown",
+        "de": "Fremd-WR: Cloud- oder Lokal-Datenweg; Lokal-Tab integriert; nur gewählter Weg sichtbar"
+      },
+      "0.5.8": {
+        "en": "Manual check button labeled + next to status; offline probe returns result not error",
+        "de": "Manuell prüfen neben Status; Offline-Probe als Ergebnis statt Fehler"
+      },
+      "0.5.7": {
+        "en": "Cleaner WR status glow; night/low-light setup hint",
+        "de": "Sauberere WR-Status-Schrift; Hinweis Nacht/zu wenig Licht"
+      },
+      "0.5.6": {
+        "en": "Local connection as switch; only after verified setup; clear stale localEnabled",
+        "de": "Lokale Verbindung als Switch; erst nach Verifizierung; veraltetes localEnabled aus"
+      },
+      "0.5.5": {
+        "en": "Render glowing WR status as styled text (not raw HTML)",
+        "de": "Leuchtender WR-Status als Style statt Roh-HTML"
+      },
+      "0.5.4": {
+        "en": "Auto stick-online check on config open; glowing green/red WR status",
+        "de": "Stick-Online-Check beim Öffnen der Config; grün/rot leuchtender WR-Status"
+      },
+      "0.5.3": {
+        "en": "Fix expert panel contrast (drop secondary color)",
+        "de": "Kontrast Experten-Panel behoben (secondary-Farbe entfernt)"
+      },
+      "0.5.2": {
+        "en": "Expert settings as collapsable panels (default closed), not Admin expert mode",
+        "de": "Experten-Einstellung als aufklappbare Panels (Standard zu), unabhängig vom Admin-Expertenmodus"
+      },
+      "0.5.1": {
+        "en": "Clearer offline messages: wait for green status, no dead-end wake wording",
+        "de": "Klarere Offline-Texte: auf grünen Status warten, kein Sackgassen-Wake-Text"
+      },
+      "0.5.0": {
+        "en": "Local tab rebuilt: login → online → setup → verified switch; experts collapsed",
+        "de": "Lokal-Tab neu: Login → Online → Einrichten → verifizierter Schalter; Experten eingeklappt"
+      },
+      "0.4.9": {
+        "en": "Online status as 🟢/🔴 label instead of checkbox",
+        "de": "Online-Status als 🟢/🔴-Label statt Checkbox"
+      },
+      "0.4.8": {
+        "en": "Background stick-online monitor; setup blocked at night; daylight-only hint (no WR wake)",
+        "de": "Stick-Online-Monitor im Hintergrund; Setup nachts blockiert; nur-Tageslicht-Hinweis (kein WR-Wake)"
+      },
+      "0.4.7": {
+        "en": "Prominent Gen24 Fake-SM add guide; expert sections labeled; defaults-only hint",
+        "de": "Gen24 Fake-SM-Anleitung prominent; Experten-Abschnitte beschriftet; Defaults-Hinweis"
+      },
+      "0.4.6": {
+        "en": "Admin: Local after Modbus; Shine user/pass on Local; encrypt token+user+password; clarify forward",
+        "de": "Admin: Lokal nach Modbus; Shine-User/Pass unter Lokal; Token+User+Passwort verschlüsselt; Forward erklärt"
+      },
+      "0.4.5": {
+        "en": "Local setup only when stick online; German errors; stick status check; fix admin button icons",
+        "de": "Lokal-Setup nur bei Stick online; deutsche Fehler; Stick-Status-Prüfung; Admin-Button-Icons entfernt"
+      },
+      "0.4.4": {
+        "en": "Remote redirect: use SERVERIP paramType; clearer datalog_lost errors (no fake no_ap_stick)",
+        "de": "Remote-Redirect: SERVERIP-paramType; klarere datalog_lost-Fehler (kein falsches no_ap_stick)"
+      },
+      "0.4.3": {
+        "en": "Remote stick redirect via Shine web (no button): cloud pushes reg 17/18; AP scan as fallback",
+        "de": "Remote-Stick-Redirect über Shine-Web (ohne Taste): Cloud schiebt Reg 17/18; AP-Scan als Fallback"
+      },
+      "0.4.2": {
+        "en": "Auto stick setup: one button + AP scan; adapter writes server IP/port (reg 17/18) itself",
+        "de": "Stick-Auto-Setup: ein Button + AP-Scan; Adapter schreibt Server-IP/Port (Reg 17/18) selbst"
+      },
+      "0.4.1": {
+        "en": "Local proxy hardening: calibrate gate, admin IP card, ping ACK, fail lastError, python roundtrip test",
+        "de": "Local-Proxy gehärtet: Kalibrier-Gate, Admin-IP-Karte, Ping-ACK, Fail-lastError, Python-Roundtrip-Test"
+      },
+      "0.4.0": {
+        "en": "Optional local Growatt stick proxy (:5279): one toggle, auto-calibrate, cloud stays default",
+        "de": "Optionaler lokaler Growatt-Stick-Proxy (:5279): ein Schalter, Auto-Kalibrierung, Cloud bleibt Default"
+      },
+      "0.3.6": {
+        "en": "Simplified admin (Fremd-WR / Modbus); encrypt token; master auto-pick; calmer Growatt cooldown",
+        "de": "Admin vereinfacht (Fremd-WR / Modbus); Token verschlüsselt; Master-Autoauswahl; ruhigerer Growatt-Cooldown"
+      },
+      "0.3.5": {
+        "en": "Admin: Gen24 Technician setup hint; clamp defaults port 502 / unit 3 / Location 3",
+        "de": "Admin: Gen24-Techniker-Einrichtungshinweis; Defaults Port 502 / Unit 3 / Location 3 absichern"
+      },
+
+      "0.3.4": {
+        "en": "Fix TS65A-3 identity registers for jsmodbus; Gen24 accepts Fake SM as secondary on unit 3",
+        "de": "TS65A-3 Identitätsregister für jsmodbus korrigiert; Gen24 akzeptiert Fake-SM als Sekundär auf Unit 3"
+      },
+
+      "0.3.3": {
+        "en": "Gen24 secondary Modbus unit default 3 (1 reserved for primary); connection logging",
+        "de": "Gen24 Sekundär-Modbus-Unit Default 3 (1=Primär); Verbindungs-Logging"
+      },
+
+      "0.3.2": {
+        "en": "Stale energy freeze; poll 60s; Fronius meter count/locations + DNS hostname",
+        "de": "Stale-Energie-Freeze; Poll 60s; Fronius Zähleranzahl/Locations + DNS-Hostname"
+      },
+      "0.3.1": {
+        "en": "Growatt 429/FREQUENTLY_ACCESS: backoff, fewer type probes, delayed first poll",
+        "de": "Growatt 429/FREQUENTLY_ACCESS: Backoff, weniger Typ-Probes, verzögerter Erstpoll"
+      },
+      "0.3.0": {
+        "en": "Fronius LAN discovery: pick inverter, auto Fake-SM defaults (port/Location)",
+        "de": "Fronius-LAN-Suche: WR wählen, Fake-SM-Defaults (Port/Location) automatisch"
+      },
+      "0.2.0": {
+        "en": "Admin: manufacturer + search + multi-device checkbox table; sum into one Fake SM",
+        "de": "Admin: Hersteller + Suche + Multi-Geräte-Checkboxen; Summe in ein Fake-SM"
+      },
+      "0.1.0": {
+        "en": "Initial release: Growatt OpenAPI + in-process Fronius TS65A-3 Modbus TCP slave",
+        "de": "Erstes Release: Growatt OpenAPI + eingebetteter Fronius TS65A-3 Modbus-TCP-Slave"
+      }
+    },
+    "titleLang": {
+      "en": "Fronius Fake Smart Meter",
+      "de": "Fronius Fake Smart Meter"
+    },
+    "desc": {
+      "en": "Serves a Fake Fronius Smart Meter (Modbus TCP) from Growatt cloud and optional local stick proxy.",
+      "de": "Stellt einen Fake Fronius Smart Meter (Modbus TCP) aus Growatt-Cloud und optional lokalem Stick-Proxy bereit."
+    },
+    "authors": [
+      "Passuff"
+    ],
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "type": "energy",
+    "icon": "fronius-fake-sm.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/Passuff/ioBroker.fronius-fake-sm/main/admin/fronius-fake-sm.png",
+    "keywords": [
+      "fronius",
+      "smartmeter",
+      "growatt",
+      "modbus",
+      "bkw"
+    ],
+    "readme": "https://github.com/Passuff/ioBroker.fronius-fake-sm/blob/main/README.md",
+    "loglevel": "info",
+    "tier": 3,
+    "compact": true,
+    "messagebox": true,
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.0"
+      }
+    ]
+  },
+  "encryptedNative": [
+    "growattToken",
+    "growattUser",
+    "growattPassword"
+  ],
+  "protectedNative": [
+    "growattToken",
+    "growattUser",
+    "growattPassword"
+  ],
+  "native": {
+    "manufacturer": "growatt",
+    "growattFeedMode": "cloud",
+    "growattToken": "",
+    "growattUser": "",
+    "growattPassword": "",
+    "growattShineUrl": "https://server.growatt.com",
+    "growattOpenApiUrl": "https://openapi.growatt.com/",
+    "localStickSn": "",
+    "stickCloudOnline": false,
+    "stickOnlineLabel": "WR nicht verbunden",
+    "stickStatusText": "",
+
+    "devices": [],
+    "powerFields": "ppv,pac,outPower,powerOfPhotovoltaic,chargePower",
+    "powerSign": -1,
+    "powerKwThreshold": 0,
+    "pollIntervalS": 60,
+    "nightPollIntervalS": 300,
+    "smoothIntervalS": 5,
+    "emaTauS": 20,
+    "maxDeltaWPerTick": 200,
+    "energyDriftCorrectPerHour": 0.01,
+    "powerEpsilonW": 5,
+    "eOffsetMode": "auto",
+    "eTotalOffsetKwh": 0,
+    "lastPublishedEProducedKwh": null,
+    "localEBaselineKwh": null,
+    "localEBaselineLocked": false,
+    "u1": 237,
+    "u2": 237,
+    "u3": 239,
+    "frequency": 50,
+    "modbusHost": "0.0.0.0",
+    "modbusPort": 502,
+    "modbusUnitId": 3,
+    "fakeUniqueId": 3,
+    "froniusDevices": [],
+    "froniusIp": "",
+    "froniusSerial": "",
+    "froniusHostname": "",
+    "advertisedModbusIp": "",
+    "localEnabled": false,
+    "localSetupVerified": false,
+    "localSetupPending": false,
+    "localHost": "0.0.0.0",
+    "localPort": 5279,
+    "localForwardCloud": true,
+    "localUpstreamHost": "",
+    "localUpstreamPort": 5279,
+    "localAutoCalibrate": true,
+    "localAutoPersistRedirect": true,
+    "localCalibrated": false,
+    "localPacOffset": "",
+    "localPacKind": "u32",
+    "localPacScale": 0.1,
+    "localEtotalOffset": "",
+    "localEtotalKind": "u32",
+    "localEtotalScale": 0.1,
+    "localVacOffset": "",
+    "localFacOffset": ""
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "name": "Connected to source API",
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.modbusListening",
+      "type": "state",
+      "common": {
+        "name": "Modbus TCP server listening",
+        "type": "boolean",
+        "role": "indicator",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.lastPoll",
+      "type": "state",
+      "common": {
+        "name": "Last successful cloud poll",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.lastError",
+      "type": "state",
+      "common": {
+        "name": "Last error message",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.enabledDeviceCount",
+      "type": "state",
+      "common": {
+        "name": "Enabled devices feeding Fake SM",
+        "type": "number",
+        "role": "value",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.froniusIp",
+      "type": "state",
+      "common": {
+        "name": "Selected Fronius IP",
+        "type": "string",
+        "role": "info.ip",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.advertisedModbusIp",
+      "type": "state",
+      "common": {
+        "name": "ioBroker IP for Gen24 config",
+        "type": "string",
+        "role": "info.ip",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.lastPublishedEProduced",
+      "type": "state",
+      "common": {
+        "name": "Last Fake-SM eProduced published to Fronius",
+        "type": "number",
+        "role": "value.energy",
+        "unit": "kWh",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.eBaselineSum",
+      "type": "state",
+      "common": {
+        "name": "Sum of active device eBaselines (auto mode)",
+        "type": "number",
+        "role": "value.energy",
+        "unit": "kWh",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "meter",
+      "type": "channel",
+      "common": {
+        "name": "Meter values served to Fronius"
+      },
+      "native": {}
+    },
+    {
+      "_id": "meter.power",
+      "type": "state",
+      "common": {
+        "name": "Raw cloud power (sum)",
+        "type": "number",
+        "role": "value.power",
+        "unit": "W",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "meter.powerSmooth",
+      "type": "state",
+      "common": {
+        "name": "Smoothed power (Modbus)",
+        "type": "number",
+        "role": "value.power",
+        "unit": "W",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "meter.eProduced",
+      "type": "state",
+      "common": {
+        "name": "Produced energy (Modbus)",
+        "type": "number",
+        "role": "value.energy",
+        "unit": "kWh",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "meter.eTotalCloud",
+      "type": "state",
+      "common": {
+        "name": "Cloud eTotal (sum)",
+        "type": "number",
+        "role": "value.energy",
+        "unit": "kWh",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "meter.current1",
+      "type": "state",
+      "common": {
+        "name": "Phase 1 current",
+        "type": "number",
+        "role": "value.current",
+        "unit": "A",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.localEnabled",
+      "type": "state",
+      "common": {
+        "name": "Local connection active",
+        "type": "boolean",
+        "role": "switch",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.localConnection",
+      "type": "state",
+      "common": {
+        "name": "Local stick proxy connected",
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.localCalibrated",
+      "type": "state",
+      "common": {
+        "name": "Local record layout calibrated",
+        "type": "boolean",
+        "role": "indicator",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.stickSn",
+      "type": "state",
+      "common": {
+        "name": "Connected stick serial",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.localIpHint",
+      "type": "state",
+      "common": {
+        "name": "ioBroker IP for stick server redirect",
+        "type": "string",
+        "role": "info.ip",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.lastLocalFrame",
+      "type": "state",
+      "common": {
+        "name": "Last local stick frame",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.setupStatus",
+      "type": "state",
+      "common": {
+        "name": "Local stick setup status",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.stickOnline",
+      "type": "state",
+      "common": {
+        "name": "Stick reachable via Growatt cloud",
+        "type": "boolean",
+        "role": "indicator",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.stickOnlineLabel",
+      "type": "state",
+      "common": {
+        "name": "Stick online status label",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": "WR nicht verbunden"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.localSetupVerified",
+      "type": "state",
+      "common": {
+        "name": "Local stick setup verified",
+        "type": "boolean",
+        "role": "indicator",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "local",
+      "type": "channel",
+      "common": {
+        "name": "Local stick values"
+      },
+      "native": {}
+    },
+    {
+      "_id": "local.pacW",
+      "type": "state",
+      "common": {
+        "name": "Local AC power",
+        "type": "number",
+        "role": "value.power",
+        "unit": "W",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "local.eTotalKwh",
+      "type": "state",
+      "common": {
+        "name": "Local eTotal",
+        "type": "number",
+        "role": "value.energy",
+        "unit": "kWh",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "local.vac1",
+      "type": "state",
+      "common": {
+        "name": "Local AC voltage L1",
+        "type": "number",
+        "role": "value.voltage",
+        "unit": "V",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "local.fac",
+      "type": "state",
+      "common": {
+        "name": "Local AC frequency",
+        "type": "number",
+        "role": "value.frequency",
+        "unit": "Hz",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "local.recordType",
+      "type": "state",
+      "common": {
+        "name": "Local record type key",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    }
+  ]
+}

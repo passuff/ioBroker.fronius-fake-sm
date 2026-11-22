@@ -1,0 +1,44 @@
+{
+  "name": "iobroker.fronius-fake-sm",
+  "version": "0.5.32",
+  "description": "Lightweight Fake Fronius Smart Meter fed by Growatt OpenAPI and optional local stick proxy",
+  "author": {
+    "name": "Passuff"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "fronius",
+    "smartmeter",
+    "growatt",
+    "modbus"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Passuff/ioBroker.fronius-fake-sm"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@iobroker/adapter-core": "^3.2.3",
+    "jsmodbus": "^4.0.10"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0"
+  },
+  "main": "main.js",
+  "files": [
+    "admin/",
+    "lib/",
+    "io-package.json",
+    "LICENSE",
+    "main.js",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node test/smoother.test.js && node test/registers.test.js && node test/adminDefaults.test.js && node test/froniusDiscover.test.js && node test/froniusMeters.test.js && node test/froniusMeterTruth.test.js && node test/rateLimit.test.js && node test/growattProto.test.js && node test/growattCommands.test.js && node test/growattShineSession.test.js && node test/stickSetupMessages.test.js && node test/auditFixes.test.js && node test/energyBaselines.test.js",
+    "start": "node main.js --logs"
+  },
+  "readmeFilename": "README.md"
+}

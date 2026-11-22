@@ -1,0 +1,1021 @@
+{
+  "type": "tabs",
+  "i18n": true,
+  "items": {
+    "source": {
+      "type": "panel",
+      "label": {
+        "en": "External inverter",
+        "de": "Fremd-WR"
+      },
+      "items": {
+        "manufacturer": {
+          "type": "select",
+          "label": {
+            "en": "Inverter manufacturer",
+            "de": "Wechselrichter-Hersteller"
+          },
+          "options": [
+            {
+              "label": "Growatt (OpenAPI)",
+              "value": "growatt",
+              "icon": "data:image/png;base64,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"
+            },
+            {
+              "label": "Sungrow (soon)",
+              "value": "sungrow"
+            },
+            {
+              "label": "Huawei (soon)",
+              "value": "huawei"
+            },
+            {
+              "label": "Fronius (soon)",
+              "value": "fronius"
+            }
+          ],
+          "default": "growatt",
+          "xs": 12,
+          "sm": 6,
+          "md": 4
+        },
+        "_hintSoon": {
+          "type": "staticText",
+          "text": {
+            "en": "v1 supports Growatt only. Other manufacturers are placeholders.",
+            "de": "v1 unterstützt nur Growatt. Andere Hersteller sind Platzhalter."
+          },
+          "xs": 12,
+          "sm": 12,
+          "md": 8
+        },
+        "growattFeedMode": {
+          "type": "select",
+          "label": {
+            "en": "Data path",
+            "de": "Datenweg"
+          },
+          "options": [
+            {
+              "label": {
+                "en": "Cloud (OpenAPI)",
+                "de": "Cloud (OpenAPI)"
+              },
+              "value": "cloud"
+            },
+            {
+              "label": {
+                "en": "Local (Stick realtime)",
+                "de": "Lokal (Stick Echtzeit)"
+              },
+              "value": "local"
+            }
+          ],
+          "default": "cloud",
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "hidden": "data.manufacturer !== 'growatt'",
+          "newLine": true
+        },
+        "_modeHint": {
+          "type": "staticText",
+          "text": {
+            "en": "Cloud needs the OpenAPI token. Local needs Shine web login (user/password) only — no API token. Only the selected path is shown.",
+            "de": "Cloud braucht den OpenAPI-Token. Lokal braucht nur Shine-Web-Login (User/Passwort) — kein API-Token. Es wird nur der gewählte Weg angezeigt."
+          },
+          "xs": 12,
+          "sm": 12,
+          "md": 8,
+          "hidden": "data.manufacturer !== 'growatt'"
+        },
+        "_cloudHeader": {
+          "type": "staticText",
+          "format": "html",
+          "text": "<div style=\"display:flex;align-items:center;gap:10px;background:#2196f3;color:#fff;padding:10px 14px;border-radius:4px;font-size:1.15rem;font-weight:600;line-height:1.2\"><img src=\"data:image/png;base64,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\" alt=\"Growatt\" width=\"28\" height=\"28\" style=\"height:28px;width:28px;border-radius:4px;object-fit:contain;background:#000\"/><span>Growatt Cloud</span></div>",
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'",
+          "noTranslation": true
+        },
+        "growattToken": {
+          "type": "password",
+          "label": {
+            "en": "API token (Shine OpenAPI)",
+            "de": "API-Token (Shine OpenAPI)"
+          },
+          "xs": 12,
+          "sm": 12,
+          "md": 8,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'",
+          "help": {
+            "en": "Only this is needed for cloud polling. Stored encrypted.",
+            "de": "Nur das wird für Cloud-Polling gebraucht. Verschlüsselt gespeichert."
+          }
+        },
+        "_searchHint": {
+          "type": "staticText",
+          "text": {
+            "en": "Instance must be running. Search plants/devices, then enable those that feed the Fake SM (powers are summed).",
+            "de": "Instanz muss laufen. Anlagen/Geräte suchen, dann per Haken wählen (Leistungen werden summiert)."
+          },
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'"
+        },
+        "discoverBtn": {
+          "type": "sendTo",
+          "label": {
+            "en": "Search plants / devices",
+            "de": "Anlagen / Geräte suchen"
+          },
+          "command": "discoverDevices",
+          "jsonData": "{\"manufacturer\": \"${data.manufacturer}\"}",
+          "useNative": true,
+          "showProcess": true,
+          "timeout": 120000,
+          "variant": "contained",
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'"
+        },
+        "devices": {
+          "type": "table",
+          "label": {
+            "en": "Devices for Fake SM",
+            "de": "Geräte für Fake-SM"
+          },
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'",
+          "items": [
+            {
+              "type": "checkbox",
+              "attr": "enabled",
+              "title": {
+                "en": "Use",
+                "de": "Nutzen"
+              },
+              "default": false,
+              "width": 60
+            },
+            {
+              "type": "text",
+              "attr": "plantName",
+              "title": {
+                "en": "Plant",
+                "de": "Anlage"
+              },
+              "readOnly": true
+            },
+            {
+              "type": "text",
+              "attr": "plantId",
+              "title": {
+                "en": "Plant ID",
+                "de": "Plant-ID"
+              },
+              "readOnly": true,
+              "width": 100
+            },
+            {
+              "type": "text",
+              "attr": "deviceSn",
+              "title": {
+                "en": "Device SN",
+                "de": "Geräte-SN"
+              },
+              "readOnly": true
+            },
+            {
+              "type": "text",
+              "attr": "deviceType",
+              "title": {
+                "en": "Type",
+                "de": "Typ"
+              },
+              "width": 80
+            },
+            {
+              "type": "text",
+              "attr": "model",
+              "title": {
+                "en": "Model",
+                "de": "Modell"
+              },
+              "readOnly": true
+            },
+            {
+              "type": "number",
+              "attr": "eBaselineKwh",
+              "title": {
+                "en": "eBaseline (kWh)",
+                "de": "eBaseline (kWh)"
+              },
+              "readOnly": true,
+              "width": 110
+            },
+            {
+              "type": "checkbox",
+              "attr": "eBaselineLocked",
+              "title": {
+                "en": "Locked",
+                "de": "Gesperrt"
+              },
+              "default": false,
+              "readOnly": true,
+              "width": 70
+            }
+          ]
+        },
+        "cloudExpertSettings": {
+          "type": "panel",
+          "label": {
+            "en": "Expert: source (Growatt OpenAPI)",
+            "de": "Experten: Quelle (Growatt OpenAPI)"
+          },
+          "collapsable": true,
+          "xs": 12,
+          "items": {
+            "_cloudExpertHint": {
+              "type": "staticText",
+              "text": {
+                "en": "Applies to all enabled Growatt devices (powers are summed). Not per device.",
+                "de": "Gilt für alle angehakten Growatt-Geräte (Leistungen werden summiert). Nicht pro Gerät."
+              },
+              "xs": 12
+            },
+            "powerFields": {
+              "type": "text",
+              "label": {
+                "en": "Power fields (comma-separated priority)",
+                "de": "Leistungsfelder (Komma, Priorität)"
+              },
+              "default": "ppv,pac,outPower,powerOfPhotovoltaic,chargePower",
+              "xs": 12,
+              "sm": 12,
+              "md": 8
+            },
+            "powerSign": {
+              "type": "number",
+              "label": {
+                "en": "Power sign (Location 3 feed-in usually -1)",
+                "de": "Leistungsvorzeichen (Location 3 meist -1)"
+              },
+              "default": -1,
+              "xs": 12,
+              "sm": 6,
+              "md": 4
+            },
+            "powerKwThreshold": {
+              "type": "number",
+              "label": {
+                "en": "Treat values below as kW (0=off)",
+                "de": "Werte darunter als kW (0=aus)"
+              },
+              "default": 0,
+              "xs": 12,
+              "sm": 6,
+              "md": 4
+            }
+          },
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'"
+        },
+        "_localHeader": {
+          "type": "header",
+          "text": {
+            "en": "Local setup",
+            "de": "Lokal-Einrichtung"
+          },
+          "size": 2,
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "_localIntro": {
+          "type": "staticText",
+          "text": {
+            "en": "Redirect stick here for realtime; forward keeps Growatt cloud active. Setup needs the stick online at Growatt (often unavailable at night).",
+            "de": "Stick hierher umleiten für Echtzeit; Weiterleiten hält die Growatt-Cloud aktiv. Einrichtung braucht den Stick online bei Growatt (nachts oft weg)."
+          },
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "_localCreds": {
+          "type": "header",
+          "text": {
+            "en": "1. Login",
+            "de": "1. Login"
+          },
+          "size": 2,
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "growattUser": {
+          "type": "text",
+          "label": {
+            "en": "Shine web user",
+            "de": "Shine-Web-User"
+          },
+          "help": {
+            "en": "Same as server.growatt.com. Stored encrypted.",
+            "de": "Wie server.growatt.com. Verschlüsselt gespeichert."
+          },
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "growattPassword": {
+          "type": "password",
+          "label": {
+            "en": "Shine web password",
+            "de": "Shine-Web-Passwort"
+          },
+          "help": {
+            "en": "Stored encrypted.",
+            "de": "Verschlüsselt gespeichert."
+          },
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "_onlineHeader": {
+          "type": "header",
+          "text": {
+            "en": "2. Online status",
+            "de": "2. Online-Status"
+          },
+          "size": 2,
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "_statusOnlineGlow": {
+          "type": "staticText",
+          "text": "WR verbunden",
+          "style": {
+            "fontSize": "1.25rem",
+            "fontWeight": 700,
+            "letterSpacing": "0.02em",
+            "color": "#00c853",
+            "textShadow": "0 0 2px rgba(0,200,83,0.45)",
+            "padding": "10px 0"
+          },
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (!data.stickCloudOnline)"
+        },
+        "_statusOfflineGlow": {
+          "type": "staticText",
+          "text": "WR nicht verbunden",
+          "style": {
+            "fontSize": "1.25rem",
+            "fontWeight": 700,
+            "letterSpacing": "0.02em",
+            "color": "#d50000",
+            "textShadow": "0 0 2px rgba(213,0,0,0.4)",
+            "padding": "10px 0"
+          },
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (data.stickCloudOnline)"
+        },
+        "checkStickOnlineBtn": {
+          "type": "sendTo",
+          "label": {
+            "en": "Check manually",
+            "de": "Manuell prüfen"
+          },
+          "icon": "refresh",
+          "command": "checkStickOnline",
+          "jsonData": "{}",
+          "useNative": true,
+          "showProcess": true,
+          "timeout": 90000,
+          "variant": "outlined",
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "_statusNightHint": {
+          "type": "staticText",
+          "text": {
+            "en": "Note: At night or in low light the inverter powers down — Growatt then has no live link to the stick, so remote setup is not possible. Wait until status is green (daylight), then run setup.",
+            "de": "Hinweis: Nachts oder bei zu wenig Licht schaltet sich der Wechselrichter ab — Growatt hat dann keine Live-Verbindung zum Stick, eine Einrichtung ist nicht möglich. Warten, bis der Status grün ist (Tageslicht), dann einrichten."
+          },
+          "style": {
+            "opacity": 0.85,
+            "paddingBottom": "8px"
+          },
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "stickOnlineLabel": {
+          "type": "text",
+          "label": "label",
+          "default": "WR nicht verbunden",
+          "readOnly": true,
+          "hidden": true,
+          "xs": 12
+        },
+        "stickCloudOnline": {
+          "type": "checkbox",
+          "label": "online",
+          "default": false,
+          "readOnly": true,
+          "hidden": true,
+          "xs": 12
+        },
+        "localSetupVerified": {
+          "type": "checkbox",
+          "label": "verified",
+          "default": false,
+          "readOnly": true,
+          "hidden": true,
+          "xs": 12
+        },
+        "_setupHeader": {
+          "type": "header",
+          "text": {
+            "en": "3. Setup",
+            "de": "3. Einrichtung"
+          },
+          "size": 2,
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "_setupBlocked": {
+          "type": "staticText",
+          "text": {
+            "en": "„Setup stick“ is available when status is green. If it stays red: often night/low light — try again in daylight.",
+            "de": "„Stick einrichten“ ist verfügbar, sobald der Status grün ist. Bleibt er rot: oft Nacht/zu wenig Licht — bei Tageslicht erneut versuchen."
+          },
+          "xs": 12,
+          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (data.stickCloudOnline)"
+        },
+        "setupLocalStickBtn": {
+          "type": "sendTo",
+          "label": {
+            "en": "Setup stick",
+            "de": "Stick einrichten"
+          },
+          "command": "setupLocalStick",
+          "jsonData": "{}",
+          "useNative": true,
+          "showProcess": true,
+          "timeout": 180000,
+          "variant": "contained",
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (!data.stickCloudOnline)"
+        },
+        "_localModeHeader": {
+          "type": "header",
+          "text": {
+            "en": "4. Local connection",
+            "de": "4. Lokale Verbindung"
+          },
+          "size": 2,
+          "xs": 12,
+          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (!data.localSetupVerified)"
+        },
+        "_localModeBlocked": {
+          "type": "staticText",
+          "text": {
+            "en": "The switch appears only after stick setup and a successful local connection test.",
+            "de": "Der Schalter erscheint erst, wenn der Stick eingerichtet ist und der Adapter eine lokale Verbindung bestätigt hat."
+          },
+          "xs": 12,
+          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (data.localSetupVerified)"
+        },
+        "localEnabled": {
+          "type": "checkbox",
+          "label": "localEnabled",
+          "default": false,
+          "hidden": true,
+          "xs": 12
+        },
+        "_localEnabledSwitch": {
+          "type": "state",
+          "oid": "info.localEnabled",
+          "control": "switch",
+          "label": {
+            "en": "Local connection active",
+            "de": "Lokale Verbindung aktiv"
+          },
+          "trueText": {
+            "en": "On",
+            "de": "An"
+          },
+          "falseText": {
+            "en": "Off",
+            "de": "Aus"
+          },
+          "help": {
+            "en": "Auto-on after successful setup. You can always turn it off; turn on only after verified setup.",
+            "de": "Nach erfolgreicher Einrichtung automatisch an. Immer manuell aus; an nur nach bestätigter Einrichtung."
+          },
+          "xs": 12,
+          "sm": 12,
+          "md": 6,
+          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (!data.localSetupVerified)"
+        },
+        "localExpertSettings": {
+          "type": "panel",
+          "label": {
+            "en": "Expert: local stick / proxy",
+            "de": "Experten: lokaler Stick / Proxy"
+          },
+          "collapsable": true,
+          "xs": 12,
+          "items": {
+            "localStickSn": {
+              "type": "text",
+              "label": {
+                "en": "Stick / datalogger SN",
+                "de": "Stick- / Datalogger-SN"
+              },
+              "xs": 12,
+              "sm": 6,
+              "md": 4
+            },
+            "advertisedModbusIp": {
+              "type": "text",
+              "label": {
+                "en": "This host IP (for stick server)",
+                "de": "Diese Host-IP (Stick-Server)"
+              },
+              "readOnly": true,
+              "xs": 12,
+              "sm": 6,
+              "md": 4
+            },
+            "localForwardCloud": {
+              "type": "checkbox",
+              "label": {
+                "en": "Forward stick traffic to Growatt cloud",
+                "de": "Stick-Traffic an Growatt-Cloud weiterleiten"
+              },
+              "default": true,
+              "xs": 12,
+              "sm": 6,
+              "md": 4
+            },
+            "localPort": {
+              "type": "number",
+              "label": {
+                "en": "Local listen port",
+                "de": "Lokaler Listen-Port"
+              },
+              "default": 5279,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "localUpstreamHost": {
+              "type": "text",
+              "label": {
+                "en": "Upstream IP override (empty = auto)",
+                "de": "Upstream-IP Override (leer = auto)"
+              },
+              "default": "",
+              "xs": 12,
+              "sm": 6,
+              "md": 4
+            },
+            "stickStatusText": {
+              "type": "text",
+              "label": {
+                "en": "Last status detail",
+                "de": "Letztes Status-Detail"
+              },
+              "readOnly": true,
+              "xs": 12
+            }
+          },
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        }
+      }
+    },
+    "meter": {
+      "type": "panel",
+      "label": {
+        "en": "Modbus / Fronius",
+        "de": "Modbus / Fronius"
+      },
+      "items": {
+        "_gen24Header": {
+          "type": "header",
+          "text": {
+            "en": "Add Fake Smart Meter on Gen24",
+            "de": "Fake Smart Meter am Gen24 hinzufügen"
+          },
+          "size": 2,
+          "xs": 12
+        },
+        "_gen24Setup": {
+          "type": "staticText",
+          "text": {
+            "en": "Technician login required (Customer cannot add meters). On the Gen24 web UI: Device configuration → Components → Add component. Type: Fronius Smart Meter (TCP). IP = ioBroker IP below, Port 502, Modbus address = same as here (default 3, never 1 = primary). Application: Producer meter (Erzeugerzähler), Category: Inverter; leave the rest default. Then search Fronius below so this adapter knows the master.",
+            "de": "Techniker-Login nötig (Endkunde kann keine Zähler anlegen). Am Gen24: Gerätekonfiguration → Komponenten → Komponente hinzufügen. Typ: Fronius Smart Meter (TCP). IP = ioBroker-IP unten, Port 502, Modbus-Adresse = wie hier (Default 3, nie 1 = Primär). Anwendung: Erzeugerzähler, Kategorie: Wechselrichter; Rest Standard. Danach unten Fronius suchen, damit der Adapter den Master kennt."
+          },
+          "xs": 12
+        },
+        "_froniusScan": {
+          "type": "header",
+          "text": {
+            "en": "Fronius master (network search)",
+            "de": "Fronius-Master (Netzwerksuche)"
+          },
+          "size": 2,
+          "xs": 12
+        },
+        "_froniusHint": {
+          "type": "staticText",
+          "text": {
+            "en": "Select the inverter that already reports meters (master / primary SM). Search auto-picks the device with the highest meter count.",
+            "de": "Den Wechselrichter mit gemeldeten Zählern wählen (Master / Primär-SM). Die Suche wählt automatisch den mit der höchsten Zähleranzahl."
+          },
+          "xs": 12
+        },
+        "discoverFroniusBtn": {
+          "type": "sendTo",
+          "label": {
+            "en": "Search Fronius on network",
+            "de": "Fronius im Netzwerk suchen"
+          },
+          "command": "discoverFronius",
+          "jsonData": "{}",
+          "useNative": true,
+          "showProcess": true,
+          "timeout": 180000,
+          "variant": "contained",
+          "xs": 12,
+          "sm": 6,
+          "md": 4
+        },
+        "froniusDevices": {
+          "type": "table",
+          "label": {
+            "en": "Found Fronius inverters (enable master)",
+            "de": "Gefundene Fronius-WR (Master anhaken)"
+          },
+          "xs": 12,
+          "items": [
+            {
+              "type": "checkbox",
+              "attr": "enabled",
+              "title": {
+                "en": "Use",
+                "de": "Nutzen"
+              },
+              "default": false,
+              "width": 60
+            },
+            {
+              "type": "text",
+              "attr": "ip",
+              "title": "IP",
+              "readOnly": true,
+              "width": 120
+            },
+            {
+              "type": "text",
+              "attr": "hostname",
+              "title": {
+                "en": "Hostname",
+                "de": "Hostname"
+              },
+              "readOnly": true
+            },
+            {
+              "type": "text",
+              "attr": "serial",
+              "title": "SN",
+              "readOnly": true
+            },
+            {
+              "type": "text",
+              "attr": "model",
+              "title": {
+                "en": "Model",
+                "de": "Modell"
+              },
+              "readOnly": true
+            },
+            {
+              "type": "text",
+              "attr": "existingMeters",
+              "title": {
+                "en": "Meters",
+                "de": "Zähler"
+              },
+              "readOnly": true,
+              "width": 140
+            }
+          ]
+        },
+        "advertisedModbusIp": {
+          "type": "text",
+          "label": {
+            "en": "ioBroker IP (for Gen24)",
+            "de": "ioBroker-IP (für Gen24)"
+          },
+          "help": {
+            "en": "Always this host’s LAN IP. Enter it on Gen24 when adding the Modbus component.",
+            "de": "Immer die LAN-IP dieses Hosts. Am Gen24 beim Hinzufügen der Modbus-Komponente eintragen."
+          },
+          "readOnly": true,
+          "xs": 12,
+          "sm": 6,
+          "md": 4
+        },
+        "modbusUnitId": {
+          "type": "number",
+          "label": {
+            "en": "Modbus address (Gen24 secondary)",
+            "de": "Modbus-Adresse (Gen24 Sekundär)"
+          },
+          "help": {
+            "en": "Same as Gen24 Modbus address. Default 3; change if already used. Never 1 (primary).",
+            "de": "Gleicher Wert wie Gen24 Modbus-Adresse. Default 3; ändern wenn belegt. Nie 1 (Primär)."
+          },
+          "default": 3,
+          "min": 2,
+          "max": 127,
+          "xs": 12,
+          "sm": 6,
+          "md": 4
+        },
+        "expertSettings": {
+          "type": "panel",
+          "label": {
+            "en": "Expert settings",
+            "de": "Experten-Einstellung"
+          },
+          "collapsable": true,
+          "xs": 12,
+          "items": {
+            "_expertScopeHint": {
+              "type": "staticText",
+              "text": {
+                "en": "All values are instance-wide (not per source device). Multiple Growatt devices are summed first, then smoothed into one Fake SM.",
+                "de": "Alles gilt instanzweit (nicht pro Quell-Gerät). Mehrere Growatt-Geräte werden zuerst summiert, dann zu einem Fake-SM geglättet."
+              },
+              "xs": 12
+            },
+            "_srcPollHeader": {
+              "type": "header",
+              "text": {
+                "en": "Source fetch (cloud)",
+                "de": "Quelle Abruf (Cloud)"
+              },
+              "size": 3,
+              "xs": 12
+            },
+            "pollIntervalS": {
+              "type": "number",
+              "label": {
+                "en": "Cloud poll interval (s)",
+                "de": "Cloud-Poll-Intervall (s)"
+              },
+              "help": {
+                "en": "How often Growatt OpenAPI is polled in cloud mode. Also influences the local stale window.",
+                "de": "Wie oft Growatt OpenAPI im Cloud-Modus abgefragt wird. Beeinflusst auch das lokale Stale-Fenster."
+              },
+              "min": 60,
+              "max": 300,
+              "default": 60,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "nightPollIntervalS": {
+              "type": "number",
+              "label": {
+                "en": "Night / zero-power poll (s)",
+                "de": "Nacht / Nullleistung Poll (s)"
+              },
+              "help": {
+                "en": "Slower poll when last power is near zero or sample is soft-stale.",
+                "de": "Langsamerer Poll, wenn letzte Leistung nahe 0 oder Sample soft-stale ist."
+              },
+              "min": 60,
+              "max": 3600,
+              "default": 300,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "_pipelineHeader": {
+              "type": "header",
+              "text": {
+                "en": "Pipeline (sum → Fake SM)",
+                "de": "Pipeline (Summe → Fake-SM)"
+              },
+              "size": 3,
+              "xs": 12
+            },
+            "smoothIntervalS": {
+              "type": "number",
+              "label": {
+                "en": "Smooth / register tick (s)",
+                "de": "Glättungs-/Register-Takt (s)"
+              },
+              "min": 1,
+              "max": 30,
+              "default": 5,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "emaTauS": {
+              "type": "number",
+              "label": {
+                "en": "EMA tau (s)",
+                "de": "EMA tau (s)"
+              },
+              "default": 20,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "maxDeltaWPerTick": {
+              "type": "number",
+              "label": {
+                "en": "Max ΔP per tick (W)",
+                "de": "Max ΔP pro Takt (W)"
+              },
+              "default": 200,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "powerEpsilonW": {
+              "type": "number",
+              "label": {
+                "en": "State write deadband (W)",
+                "de": "State-Schreib-Deadband (W)"
+              },
+              "default": 5,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "eOffsetMode": {
+              "type": "select",
+              "label": {
+                "en": "eTotal / Fake-SM energy mode",
+                "de": "eTotal / Fake-SM-Energie-Modus"
+              },
+              "options": [
+                {
+                  "label": {
+                    "en": "Auto baselines (recommended)",
+                    "de": "Auto-Baselines (empfohlen)"
+                  },
+                  "value": "auto"
+                },
+                {
+                  "label": {
+                    "en": "Manual offset",
+                    "de": "Manueller Offset"
+                  },
+                  "value": "manual"
+                }
+              ],
+              "default": "auto",
+              "help": {
+                "en": "Auto: per enabled device, lock eBaseline on first valid sample; Fake-SM energy = Σ max(eTotal−baseline, 0). On every start the adapter waits for the Gen24 Modbus client, then reads Solar API Loc3 EnergyReal_WAC_Sum_Produced as truth (transient 0 Wh after reconnect is ignored). Baselines stay locked unless that counter diverges. Manual: classic global eTotal − offset.",
+                "de": "Auto: pro aktivem Gerät eBaseline beim ersten gültigen Sample sperren; Fake-SM-Energie = Σ max(eTotal−Baseline, 0). Bei jedem Start wartet der Adapter auf den Gen24-Modbus-Client und liest dann Solar-API Loc3 EnergyReal_WAC_Sum_Produced als Truth (transientes 0 Wh nach Reconnect wird ignoriert). Baselines bleiben gesperrt, außer der Zähler weicht ab. Manuell: klassisch global eTotal − Offset."
+              },
+              "xs": 12,
+              "sm": 6,
+              "md": 6
+            },
+            "eTotalOffsetKwh": {
+              "type": "number",
+              "label": {
+                "en": "eTotal offset (kWh, manual mode)",
+                "de": "eTotal-Offset (kWh, manueller Modus)"
+              },
+              "help": {
+                "en": "Only used when mode = Manual. Fake-SM energy = source eTotal − this offset. Prefer Auto baselines for multi-WR and config recovery.",
+                "de": "Nur bei Modus = Manuell. Fake-SM-Energie = Quell-eTotal − dieser Offset. Für Mehr-WR und Config-Wiederherstellung Auto-Baselines bevorzugen."
+              },
+              "default": 0,
+              "hidden": "data.eOffsetMode !== 'manual'",
+              "xs": 12,
+              "sm": 6,
+              "md": 6
+            },
+            "resetEnergyBaselinesBtn": {
+              "type": "sendTo",
+              "label": {
+                "en": "Reset energy baselines",
+                "de": "Energie-Baselines zurücksetzen"
+              },
+              "command": "resetEnergyBaselines",
+              "jsonData": "{}",
+              "useNative": true,
+              "showProcess": true,
+              "timeout": 15000,
+              "variant": "outlined",
+              "help": {
+                "en": "Clears per-device baselines (and local). Next samples re-lock. May cause a Fronius/Solar.web energy jump — only if you intentionally want a soft restart.",
+                "de": "Löscht Geräte-Baselines (und lokal). Nächste Samples sperren neu. Kann einen Fronius/Solar.web-Energie-Sprung verursachen — nur bei gewolltem Soft-Neustart."
+              },
+              "xs": 12,
+              "sm": 6,
+              "md": 4,
+              "hidden": "data.eOffsetMode === 'manual'"
+            },
+            "_fakeSmHeader": {
+              "type": "header",
+              "text": {
+                "en": "Fake Smart Meter (what Gen24 sees)",
+                "de": "Fake Smart Meter (was der Gen24 sieht)"
+              },
+              "size": 3,
+              "xs": 12
+            },
+            "modbusHost": {
+              "type": "text",
+              "label": {
+                "en": "Listen address",
+                "de": "Listen-Adresse"
+              },
+              "default": "0.0.0.0",
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "modbusPort": {
+              "type": "number",
+              "label": {
+                "en": "Port (Gen24 usually 502)",
+                "de": "Port (Gen24 meist 502)"
+              },
+              "default": 502,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "fakeUniqueId": {
+              "type": "number",
+              "label": {
+                "en": "Fake unique ID / Location",
+                "de": "Fake Unique-ID / Location"
+              },
+              "help": {
+                "en": "Internal Location id (usually 3). Not the Modbus address.",
+                "de": "Interne Location-ID (meist 3). Nicht die Modbus-Adresse."
+              },
+              "default": 3,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "u1": {
+              "type": "number",
+              "label": "U1 (V)",
+              "default": 237,
+              "xs": 12,
+              "sm": 4,
+              "md": 2
+            },
+            "u2": {
+              "type": "number",
+              "label": "U2 (V)",
+              "default": 237,
+              "xs": 12,
+              "sm": 4,
+              "md": 2
+            },
+            "u3": {
+              "type": "number",
+              "label": "U3 (V)",
+              "default": 239,
+              "xs": 12,
+              "sm": 4,
+              "md": 2
+            },
+            "frequency": {
+              "type": "number",
+              "label": {
+                "en": "Frequency (Hz)",
+                "de": "Frequenz (Hz)"
+              },
+              "default": 50,
+              "xs": 12,
+              "sm": 4,
+              "md": 2
+            }
+          }
+        }
+      }
+    }
+  }
+}
