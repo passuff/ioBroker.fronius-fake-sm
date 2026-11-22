@@ -48,6 +48,7 @@
     "test:package": "mocha test/package.js --exit",
     "test:integration": "mocha test/integration.js --exit",
     "test": "npm run test:unit && npm run test:package && npm run test:integration",
+    "test:ci": "npm run test:unit && npm run test:package",
     "release": "release-script",
     "start": "node main.js --logs"
   },

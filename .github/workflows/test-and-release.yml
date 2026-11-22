@@ -24,7 +24,6 @@ jobs:
       - uses: ioBroker/testing-action-check@v2
         with:
           node-version: '22.x'
-          # No eslint/tsc yet — package checks only
           lint: false
 
   adapter-tests:
@@ -34,14 +33,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [20.x, 22.x]
+        # JS-Controller used by @iobroker/testing needs Node >=22.22
+        node-version: [22.x, 24.x]
         os: [ubuntu-latest, windows-latest]
     steps:
       - uses: ioBroker/testing-action-adapter@v1
         with:
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
-          # Pure JS adapter — no build step
           build: false
 
   deploy:
@@ -60,4 +59,3 @@ jobs:
           node-version: '22.x'
           build: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          # Trusted Publishing: no npm-token secret
