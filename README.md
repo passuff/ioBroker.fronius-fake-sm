@@ -91,11 +91,18 @@ set GROWATT_TOKEN=...   # optional
 node run-standalone.js --port 1502
 ```
 
+## Testers
+
+Forum post draft (German): [docs/FORUM_TESTER_POST.de.md](docs/FORUM_TESTER_POST.de.md)  
+GitHub: https://github.com/passuff/ioBroker.fronius-fake-sm/issues/1
+
 ## Changelog
 
 ### **WORK IN PROGRESS**
 
-Current development line is published from GitHub only (not yet on npm / Latest). See `io-package.json` `common.news` for per-version notes.
+- (Passuff) Phase-1: `@iobroker/testing` package/integration tests, `test-and-release.yml`, release-script
+
+Current development line is published from GitHub; npm / Latest follow after Forum validation. See `io-package.json` `common.news` for per-version notes.
 
 ## License
 
