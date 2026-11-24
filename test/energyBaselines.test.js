@@ -31,6 +31,7 @@ const d1 = { enabled: true, deviceSn: 'A', eBaselineLocked: false, eBaselineKwh:
 assert.strictEqual(tryLockDeviceBaseline(d1, 0.5), false, 'ignore tiny eTotal');
 assert.strictEqual(tryLockDeviceBaseline(d1, 100), true);
 assert.strictEqual(d1.eBaselineKwh, 100);
+assert.strictEqual(d1.eBaselineStatus, 'fixiert');
 assert.strictEqual(tryLockDeviceBaseline(d1, 110), false, 'already locked');
 assert.strictEqual(deviceRelativeKwh(d1, 130), 30);
 assert.strictEqual(deviceRelativeKwh(d1, 90), 0, 'never negative');
@@ -65,6 +66,7 @@ assert.strictEqual(sumRelativeKwh(z), 0);
 // reset
 assert.strictEqual(resetAllBaselines([z[0].device]), 1);
 assert.strictEqual(z[0].device.eBaselineLocked, false);
+assert.strictEqual(z[0].device.eBaselineStatus, '—');
 
 // applyEnergySamples: rebuild preferred over soft lock when lastPublished set
 const adapter = mockAdapter({
@@ -137,5 +139,25 @@ const orphanOut = applyEnergySamples(orphanAdapter, [{ device: orphan, e_total_k
 assert.ok(Math.abs(orphanOut.relSum - 40) < 1e-9);
 assert.strictEqual(getLastPublished(orphanAdapter), 40);
 assert.strictEqual(orphanAdapter.smoother.state.eProducedKwh, 40);
+
+// Sample-path lockedNew must NOT write native (restart loop gate)
+let foreignWrites = 0;
+const noPersistAdapter = mockAdapter({
+    eOffsetMode: 'auto',
+    lastPublishedEProducedKwh: 50,
+    devices: [{ enabled: true, deviceSn: 'NP1', eBaselineLocked: false, eBaselineKwh: null }],
+});
+noPersistAdapter.getForeignObjectAsync = async () => ({
+    native: { devices: noPersistAdapter.config.devices, lastPublishedEProducedKwh: 50 },
+});
+noPersistAdapter.setForeignObjectAsync = async () => {
+    foreignWrites += 1;
+};
+const noPersistOut = applyEnergySamples(noPersistAdapter, [
+    { device: noPersistAdapter.config.devices[0], e_total_kwh: 250 },
+]);
+assert.ok(noPersistOut.lockedNew || noPersistOut.rebuilt);
+assert.strictEqual(foreignWrites, 0, 'applyEnergySamples must not persist native on lockedNew');
+assert.strictEqual(noPersistAdapter._persistBaselineTimer, undefined);
 
 console.log('energyBaselines.test.js OK');
