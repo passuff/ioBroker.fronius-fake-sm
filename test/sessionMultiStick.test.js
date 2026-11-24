@@ -74,6 +74,38 @@ function mockSock(ip) {
     assert.strictEqual(prodOnly.pac_w, 0, 'filtered to prod stick only (0 W)');
     assert.strictEqual(prodOnly.sn, 'XGD6CK737N', 'filtered sample carries prod SN');
 
+    // Multi-stick / multi-plant: a SET of selected feed sticks is summed together.
+    server.stickSamples.set('XGD9ABCDEF', { pac_w: 500, e_total_kwh: 42, u1: 231, f: 50, at: now });
+    const twoPlants = server.sumFreshSamples(90000, ['XGD6CJH2Y0', 'XGD9ABCDEF']);
+    assert.strictEqual(twoPlants.pac_w, 2350, 'two selected plants summed (1850 + 500)');
+    assert.strictEqual(twoPlants.stickCount, 2, 'two sticks counted');
+    const asSet = server.sumFreshSamples(90000, new Set(['XGD9ABCDEF']));
+    assert.strictEqual(asSet.pac_w, 500, 'Set filter works too');
+
+    // GrowattServer.isFeedStick: feed set gates which sticks are decoded locally.
+    const multi = new GrowattServer({
+        host: '127.0.0.1',
+        port: 0,
+        forwardCloud: false,
+        feedStickSns: ['XGD6CJH2Y0', 'XGD9ABCDEF'],
+        log: () => {},
+        debug: () => {},
+        error: () => {},
+    });
+    assert.strictEqual(multi.isFeedStick('XGD6CJH2Y0'), true, 'selected stick is a feed stick');
+    assert.strictEqual(multi.isFeedStick('XGD9ABCDEF'), true, 'second selected stick is a feed stick');
+    assert.strictEqual(multi.isFeedStick('XGD6CK737N'), false, 'unselected stick is forward-only');
+
+    const anyServer = new GrowattServer({
+        host: '127.0.0.1',
+        port: 0,
+        forwardCloud: false,
+        log: () => {},
+        debug: () => {},
+        error: () => {},
+    });
+    assert.strictEqual(anyServer.isFeedStick('WHATEVER'), true, 'empty feed set mirrors any stick (legacy)');
+
     console.log('sessionMultiStick.test.js OK');
 })().catch((err) => {
     console.error(err);
