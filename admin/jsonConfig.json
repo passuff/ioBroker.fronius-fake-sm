@@ -20,18 +20,6 @@
               "label": "Growatt (OpenAPI)",
               "value": "growatt",
               "icon": "data:image/png;base64,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"
-            },
-            {
-              "label": "Sungrow (soon)",
-              "value": "sungrow"
-            },
-            {
-              "label": "Huawei (soon)",
-              "value": "huawei"
-            },
-            {
-              "label": "Fronius (soon)",
-              "value": "fronius"
             }
           ],
           "default": "growatt",
@@ -41,9 +29,10 @@
         },
         "_hintSoon": {
           "type": "staticText",
+          "format": "html",
           "text": {
-            "en": "v1 supports Growatt only. Other manufacturers are placeholders.",
-            "de": "v1 unterstützt nur Growatt. Andere Hersteller sind Platzhalter."
+            "en": "v1: Growatt only. Hardware: <a href=\"https://github.com/passuff/ioBroker.fronius-fake-sm/blob/main/README.md#supported-hardware--unterstützte-hardware\" target=\"_blank\" rel=\"noopener noreferrer\">README → Supported hardware</a>.",
+            "de": "v1: nur Growatt. Hardware: <a href=\"https://github.com/passuff/ioBroker.fronius-fake-sm/blob/main/README.md#supported-hardware--unterstützte-hardware\" target=\"_blank\" rel=\"noopener noreferrer\">README → Unterstützte Hardware</a>."
           },
           "xs": 12,
           "sm": 12,
@@ -81,13 +70,147 @@
         "_modeHint": {
           "type": "staticText",
           "text": {
-            "en": "Cloud needs the OpenAPI token. Local needs Shine web login (user/password) only — no API token. Only the selected path is shown.",
-            "de": "Cloud braucht den OpenAPI-Token. Lokal braucht nur Shine-Web-Login (User/Passwort) — kein API-Token. Es wird nur der gewählte Weg angezeigt."
+            "en": "Cloud uses OpenAPI token (or Shine login). Local needs Shine web login; device search still uses the token when set.",
+            "de": "Cloud: OpenAPI-Token (oder Shine-Login). Lokal: Shine-Web-Login; Geräte-Suche nutzt den Token, falls gesetzt."
           },
           "xs": 12,
           "sm": 12,
           "md": 8,
           "hidden": "data.manufacturer !== 'growatt'"
+        },
+        "pollingPresetPanel": {
+          "type": "panel",
+          "label": {
+            "en": "Polling preset",
+            "de": "Polling-Vorlage"
+          },
+          "collapsable": true,
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt'",
+          "items": {
+            "_pollingPresetHint": {
+              "type": "staticText",
+              "text": {
+                "en": "Pick a preset, then Apply. Sets Fake-SM intervals below and WR-variable sample rates. Instance must be running; save is automatic.",
+                "de": "Vorlage wählen, dann Anwenden. Setzt Fake-SM-Intervalle unten und WR-Variablen-Raten. Instanz muss laufen; Speichern erfolgt automatisch."
+              },
+              "xs": 12
+            },
+            "pollingTemplate": {
+              "type": "select",
+              "label": {
+                "en": "Polling preset",
+                "de": "Polling-Vorlage"
+              },
+              "help": {
+                "en": "OpenAPI slowest; Shine medium; Local Fake-SM 1s + faster WR vars. Apply also updates the WR-Variablen table.",
+                "de": "OpenAPI am langsamsten; Shine mittel; Lokal Fake-SM 1s + schnellere WR-Vars. Anwenden aktualisiert auch die WR-Variablen-Tabelle."
+              },
+              "options": [
+                {
+                  "label": {
+                    "en": "OpenAPI (cloud token)",
+                    "de": "OpenAPI (Cloud-Token)"
+                  },
+                  "value": "openapi"
+                },
+                {
+                  "label": {
+                    "en": "Shine login (credentials)",
+                    "de": "Shine-Login (Anmeldedaten)"
+                  },
+                  "value": "shine"
+                },
+                {
+                  "label": {
+                    "en": "Local (stick realtime)",
+                    "de": "Lokal (Stick Echtzeit)"
+                  },
+                  "value": "local"
+                },
+                {
+                  "label": {
+                    "en": "Custom",
+                    "de": "Benutzerdefiniert"
+                  },
+                  "value": "custom"
+                }
+              ],
+              "default": "openapi",
+              "xs": 12,
+              "sm": 6,
+              "md": 4,
+              "newLine": true
+            },
+            "applyPollingTemplateBtn": {
+              "type": "sendTo",
+              "label": {
+                "en": "Apply polling preset",
+                "de": "Polling-Vorlage anwenden"
+              },
+              "command": "applyPollingTemplate",
+              "jsonData": "{\"pollingTemplate\":\"${data.pollingTemplate}\",\"growattFeedMode\":\"${data.growattFeedMode}\",\"growattCloudAuth\":\"${data.growattCloudAuth}\"}",
+              "useNative": true,
+              "showProcess": true,
+              "timeout": 10000,
+              "variant": "outlined",
+              "xs": 12,
+              "sm": 6,
+              "md": 4,
+              "hidden": "data.pollingTemplate === 'custom'"
+            },
+            "pollIntervalS": {
+              "type": "number",
+              "label": {
+                "en": "Cloud poll interval (s)",
+                "de": "Cloud-Poll-Intervall (s)"
+              },
+              "help": {
+                "en": "OpenAPI ≥120s; Shine ≥30s. Local: fallback only while stick feed inactive.",
+                "de": "OpenAPI ≥120s; Shine ≥30s. Lokal: nur Fallback ohne Stick-Feed."
+              },
+              "min": 30,
+              "max": 600,
+              "default": 120,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "nightPollIntervalS": {
+              "type": "number",
+              "label": {
+                "en": "Night / zero-power poll (s)",
+                "de": "Nacht / Nullleistung Poll (s)"
+              },
+              "help": {
+                "en": "Slower poll near zero power; not below the day interval.",
+                "de": "Langsamerer Poll bei Nullleistung; nicht unter dem Day-Intervall."
+              },
+              "min": 30,
+              "max": 3600,
+              "default": 300,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            },
+            "smoothIntervalS": {
+              "type": "number",
+              "label": {
+                "en": "Smooth / register tick (s)",
+                "de": "Glättungs-/Register-Takt (s)"
+              },
+              "help": {
+                "en": "Fake-SM Modbus update. Local preset: 1s (max useful for Gen24).",
+                "de": "Fake-SM Modbus-Takt. Lokal-Vorlage: 1s (sinnvolles Maximum für Gen24)."
+              },
+              "min": 1,
+              "max": 30,
+              "default": 5,
+              "xs": 12,
+              "sm": 6,
+              "md": 3
+            }
+          }
         },
         "_cloudHeader": {
           "type": "staticText",
@@ -96,6 +219,48 @@
           "xs": 12,
           "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'",
           "noTranslation": true
+        },
+        "growattCloudAuth": {
+          "type": "select",
+          "label": {
+            "en": "Cloud auth",
+            "de": "Cloud-Anmeldung"
+          },
+          "options": [
+            {
+              "label": {
+                "en": "OpenAPI token (default)",
+                "de": "OpenAPI-Token (Standard)"
+              },
+              "value": "openapi"
+            },
+            {
+              "label": {
+                "en": "Shine login (user/password)",
+                "de": "Shine-Login (User/Passwort)"
+              },
+              "value": "shine"
+            }
+          ],
+          "default": "openapi",
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'",
+          "help": {
+            "en": "OpenAPI: queryLastData is rate-limited (~120s / FREQUENTLY_ACCESS on this account). Shine login: tested at 60s default and 30s minimum — do not poll faster.",
+            "de": "OpenAPI: queryLastData rate-limitiert (~120s / FREQUENTLY_ACCESS bei diesem Account). Shine-Login: getestet Default 60s, Minimum 30s — nicht schneller pollen."
+          }
+        },
+        "_shineCloudLockWarn": {
+          "type": "staticText",
+          "format": "html",
+          "text": {
+            "en": "<div style=\"background:#fff8e1;border:1px solid #ffb300;border-radius:8px;padding:10px 12px;color:#5d4037;font-size:0.95rem;line-height:1.35\">⚠ Prefer OpenAPI when possible. Shine poll ≥30s; avoid frequent re-logins (portal lock risk).</div>",
+            "de": "<div style=\"background:#fff8e1;border:1px solid #ffb300;border-radius:8px;padding:10px 12px;color:#5d4037;font-size:0.95rem;line-height:1.35\">⚠ OpenAPI bevorzugen. Shine-Poll ≥30 s; Relogins vermeiden (Portalsperr-Risiko).</div>"
+          },
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud' || data.growattCloudAuth !== 'shine'"
         },
         "growattToken": {
           "type": "password",
@@ -106,20 +271,51 @@
           "xs": 12,
           "sm": 12,
           "md": 8,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'",
+          "hidden": "data.manufacturer !== 'growatt' || (data.growattFeedMode === 'cloud' && data.growattCloudAuth === 'shine')",
           "help": {
-            "en": "Only this is needed for cloud polling. Stored encrypted.",
-            "de": "Nur das wird für Cloud-Polling gebraucht. Verschlüsselt gespeichert."
+            "en": "Required for OpenAPI poll. Optional for search/local. Encrypted. Details: README.",
+            "de": "Pflicht für OpenAPI-Poll. Optional für Suche/Lokal. Verschlüsselt. Details: README."
           }
+        },
+        "growattUser": {
+          "type": "text",
+          "label": {
+            "en": "Shine web user",
+            "de": "Shine-Web-User"
+          },
+          "help": {
+            "en": "Same as server.growatt.com. Used for local stick setup and Shine cloud poll. Stored encrypted.",
+            "de": "Wie server.growatt.com. Für Lokal-Setup und Shine-Cloud-Poll. Verschlüsselt gespeichert."
+          },
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "newLine": true,
+          "hidden": "data.manufacturer !== 'growatt' || (data.growattFeedMode !== 'local' && !(data.growattFeedMode === 'cloud' && data.growattCloudAuth === 'shine'))"
+        },
+        "growattPassword": {
+          "type": "password",
+          "label": {
+            "en": "Shine web password",
+            "de": "Shine-Web-Passwort"
+          },
+          "help": {
+            "en": "Stored encrypted. Avoid frequent re-logins when using Shine cloud poll (portal lock risk).",
+            "de": "Verschlüsselt gespeichert. Bei Shine-Cloud-Poll Relogins vermeiden (Portalsperr-Risiko)."
+          },
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "hidden": "data.manufacturer !== 'growatt' || (data.growattFeedMode !== 'local' && !(data.growattFeedMode === 'cloud' && data.growattCloudAuth === 'shine'))"
         },
         "_searchHint": {
           "type": "staticText",
           "text": {
-            "en": "Instance must be running. Search plants/devices, then enable those that feed the Fake SM (powers are summed).",
-            "de": "Instanz muss laufen. Anlagen/Geräte suchen, dann per Haken wählen (Leistungen werden summiert)."
+            "en": "Instance must be running. Search, then enable rows that feed the Fake SM (powers summed).",
+            "de": "Instanz muss laufen. Suchen, dann Zeilen aktivieren, die den Fake-SM speisen (Leistungen summiert)."
           },
           "xs": 12,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'"
+          "hidden": "data.manufacturer !== 'growatt' || !data.growattToken"
         },
         "discoverBtn": {
           "type": "sendTo",
@@ -128,7 +324,7 @@
             "de": "Anlagen / Geräte suchen"
           },
           "command": "discoverDevices",
-          "jsonData": "{\"manufacturer\": \"${data.manufacturer}\"}",
+          "jsonData": "{\"manufacturer\":\"${data.manufacturer}\",\"growattUser\":\"${data.growattUser}\",\"growattPassword\":\"${data.growattPassword}\"}",
           "useNative": true,
           "showProcess": true,
           "timeout": 120000,
@@ -136,7 +332,7 @@
           "xs": 12,
           "sm": 6,
           "md": 4,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'"
+          "hidden": "data.manufacturer !== 'growatt' || !data.growattToken"
         },
         "devices": {
           "type": "table",
@@ -145,7 +341,9 @@
             "de": "Geräte für Fake-SM"
           },
           "xs": 12,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'",
+          "noDelete": true,
+          "compact": true,
+          "hidden": "data.manufacturer !== 'growatt' || (!data.growattToken && data.growattFeedMode === 'local')",
           "items": [
             {
               "type": "checkbox",
@@ -155,7 +353,7 @@
                 "de": "Nutzen"
               },
               "default": false,
-              "width": 60
+              "width": "5%"
             },
             {
               "type": "text",
@@ -164,7 +362,8 @@
                 "en": "Plant",
                 "de": "Anlage"
               },
-              "readOnly": true
+              "readOnly": true,
+              "width": "12%"
             },
             {
               "type": "text",
@@ -174,7 +373,7 @@
                 "de": "Plant-ID"
               },
               "readOnly": true,
-              "width": 100
+              "width": "8%"
             },
             {
               "type": "text",
@@ -183,48 +382,160 @@
                 "en": "Device SN",
                 "de": "Geräte-SN"
               },
-              "readOnly": true
+              "readOnly": true,
+              "width": "11%"
             },
             {
               "type": "text",
-              "attr": "deviceType",
+              "attr": "stickSn",
+              "title": {
+                "en": "Stick SN",
+                "de": "Stick-SN"
+              },
+              "readOnly": true,
+              "width": "12%"
+            },
+            {
+              "type": "text",
+              "attr": "deviceTypeLabel",
               "title": {
                 "en": "Type",
                 "de": "Typ"
               },
-              "width": 80
+              "readOnly": true,
+              "width": "30%"
             },
             {
               "type": "text",
-              "attr": "model",
+              "attr": "pmaxLabel",
               "title": {
-                "en": "Model",
-                "de": "Modell"
-              },
-              "readOnly": true
-            },
-            {
-              "type": "number",
-              "attr": "eBaselineKwh",
-              "title": {
-                "en": "eBaseline (kWh)",
-                "de": "eBaseline (kWh)"
+                "en": "Max. power",
+                "de": "Max. Leistung"
               },
               "readOnly": true,
-              "width": 110
-            },
-            {
-              "type": "checkbox",
-              "attr": "eBaselineLocked",
-              "title": {
-                "en": "Locked",
-                "de": "Gesperrt"
-              },
-              "default": false,
-              "readOnly": true,
-              "width": 70
+              "width": "12%",
+              "tooltip": {
+                "en": "Maximum power configured in the inverter (pmax), which can differ from the nameplate.",
+                "de": "Im Wechselrichter eingestellte Maximalleistung (pmax), kann vom Typenschild abweichen."
+              }
             }
           ]
+        },
+        "_stickStatusLive": {
+          "type": "state",
+          "oid": "info.stickStatus",
+          "control": "text",
+          "label": {
+            "en": "Stick status (live)",
+            "de": "Stick-Status (live)"
+          },
+          "xs": 12,
+          "sm": 8,
+          "md": 8,
+          "newLine": true,
+          "hidden": true
+        },
+        "_stickSnLive": {
+          "type": "state",
+          "oid": "info.stickSn",
+          "control": "text",
+          "label": {
+            "en": "Local stick SN",
+            "de": "Lokaler Stick (SN)"
+          },
+          "xs": 12,
+          "sm": 4,
+          "md": 4,
+          "hidden": true
+        },
+        "_localConnectionLive": {
+          "type": "state",
+          "oid": "info.localConnection",
+          "control": "text",
+          "label": {
+            "en": "On local proxy",
+            "de": "Am lokalen Proxy"
+          },
+          "xs": 6,
+          "sm": 2,
+          "md": 2,
+          "hidden": true
+        },
+        "_proxyClientCountLive": {
+          "type": "state",
+          "oid": "info.proxyClientCount",
+          "control": "text",
+          "label": {
+            "en": "Proxy TCP sessions",
+            "de": "Proxy-TCP-Sessions"
+          },
+          "xs": 6,
+          "sm": 2,
+          "md": 2,
+          "hidden": true
+        },
+        "_localFrameStatusLive": {
+          "type": "state",
+          "oid": "info.localFrameStatus",
+          "control": "text",
+          "label": {
+            "en": "Local frame decode",
+            "de": "Lokale Frame-Auswertung"
+          },
+          "xs": 12,
+          "sm": 8,
+          "md": 8,
+          "hidden": true
+        },
+        "_cloudStickRedirectBanner": {
+          "type": "staticText",
+          "format": "html",
+          "text": {
+            "en": "<div style=\"display:flex;gap:10px;align-items:flex-start;background:#FFF8E1;border:1px solid #FFB300;border-radius:8px;padding:10px 12px;color:#5D4037;font-size:0.95rem;line-height:1.35\"><span aria-hidden=\"true\">⚠</span><span><b>Stick redirect active</b> — proxy :5279 forwards to Growatt. Use the button to restore cloud.</span></div>",
+            "de": "<div style=\"display:flex;gap:10px;align-items:flex-start;background:#FFF8E1;border:1px solid #FFB300;border-radius:8px;padding:10px 12px;color:#5D4037;font-size:0.95rem;line-height:1.35\"><span aria-hidden=\"true\">⚠</span><span><b>Stick-Umleitung aktiv</b> — Proxy :5279 leitet zu Growatt. Mit dem Button wieder Cloud.</span></div>"
+          },
+          "xs": 12,
+          "sm": 8,
+          "md": 8,
+          "newLine": true,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud' || !data.cloudStickRedirectActive"
+        },
+        "restoreCloudStickCloudBtn": {
+          "type": "sendTo",
+          "label": {
+            "en": "Remove redirect",
+            "de": "Umleitung entfernen"
+          },
+          "command": "restoreCloudStick",
+          "jsonData": "{\"localPlantId\":\"${data.localPlantId}\",\"localStickSn\":\"${data.cloudStickRedirectSn}\",\"growattUser\":\"${data.growattUser}\",\"growattPassword\":\"${data.growattPassword}\",\"growattFeedMode\":\"${data.growattFeedMode}\"}",
+          "useNative": true,
+          "showProcess": true,
+          "timeout": 360000,
+          "variant": "outlined",
+          "xs": 12,
+          "sm": 4,
+          "md": 4,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud' || !data.cloudStickRedirectActive"
+        },
+        "cloudStickRedirectActive": {
+          "type": "checkbox",
+          "label": {
+            "en": "Stick redirect active (internal)",
+            "de": "Stick-Umleitung aktiv (intern)"
+          },
+          "default": false,
+          "hidden": true,
+          "xs": 12
+        },
+        "cloudStickRedirectSn": {
+          "type": "text",
+          "label": {
+            "en": "Redirect stick SN (internal)",
+            "de": "Umleitungs-Stick-SN (intern)"
+          },
+          "default": "",
+          "hidden": true,
+          "xs": 12
         },
         "cloudExpertSettings": {
           "type": "panel",
@@ -279,149 +590,41 @@
           },
           "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'cloud'"
         },
-        "_localHeader": {
-          "type": "header",
-          "text": {
-            "en": "Local setup",
-            "de": "Lokal-Einrichtung"
-          },
-          "size": 2,
-          "xs": 12,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
-        },
-        "_localIntro": {
-          "type": "staticText",
-          "text": {
-            "en": "Redirect stick here for realtime; forward keeps Growatt cloud active. Setup needs the stick online at Growatt (often unavailable at night).",
-            "de": "Stick hierher umleiten für Echtzeit; Weiterleiten hält die Growatt-Cloud aktiv. Einrichtung braucht den Stick online bei Growatt (nachts oft weg)."
-          },
-          "xs": 12,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
-        },
-        "_localCreds": {
-          "type": "header",
-          "text": {
-            "en": "1. Login",
-            "de": "1. Login"
-          },
-          "size": 2,
-          "xs": 12,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
-        },
-        "growattUser": {
-          "type": "text",
-          "label": {
-            "en": "Shine web user",
-            "de": "Shine-Web-User"
-          },
-          "help": {
-            "en": "Same as server.growatt.com. Stored encrypted.",
-            "de": "Wie server.growatt.com. Verschlüsselt gespeichert."
-          },
-          "xs": 12,
-          "sm": 6,
-          "md": 4,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
-        },
-        "growattPassword": {
-          "type": "password",
-          "label": {
-            "en": "Shine web password",
-            "de": "Shine-Web-Passwort"
-          },
-          "help": {
-            "en": "Stored encrypted.",
-            "de": "Verschlüsselt gespeichert."
-          },
-          "xs": 12,
-          "sm": 6,
-          "md": 4,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
-        },
-        "_onlineHeader": {
-          "type": "header",
-          "text": {
-            "en": "2. Online status",
-            "de": "2. Online-Status"
-          },
-          "size": 2,
-          "xs": 12,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
-        },
-        "_statusOnlineGlow": {
-          "type": "staticText",
-          "text": "WR verbunden",
-          "style": {
-            "fontSize": "1.25rem",
-            "fontWeight": 700,
-            "letterSpacing": "0.02em",
-            "color": "#00c853",
-            "textShadow": "0 0 2px rgba(0,200,83,0.45)",
-            "padding": "10px 0"
-          },
-          "xs": 12,
-          "sm": 6,
-          "md": 4,
-          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (!data.stickCloudOnline)"
-        },
-        "_statusOfflineGlow": {
-          "type": "staticText",
-          "text": "WR nicht verbunden",
-          "style": {
-            "fontSize": "1.25rem",
-            "fontWeight": 700,
-            "letterSpacing": "0.02em",
-            "color": "#d50000",
-            "textShadow": "0 0 2px rgba(213,0,0,0.4)",
-            "padding": "10px 0"
-          },
-          "xs": 12,
-          "sm": 6,
-          "md": 4,
-          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (data.stickCloudOnline)"
-        },
-        "checkStickOnlineBtn": {
-          "type": "sendTo",
-          "label": {
-            "en": "Check manually",
-            "de": "Manuell prüfen"
-          },
-          "icon": "refresh",
-          "command": "checkStickOnline",
-          "jsonData": "{}",
-          "useNative": true,
-          "showProcess": true,
-          "timeout": 90000,
-          "variant": "outlined",
-          "xs": 12,
-          "sm": 6,
-          "md": 4,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
-        },
-        "_statusNightHint": {
-          "type": "staticText",
-          "text": {
-            "en": "Note: At night or in low light the inverter powers down — Growatt then has no live link to the stick, so remote setup is not possible. Wait until status is green (daylight), then run setup.",
-            "de": "Hinweis: Nachts oder bei zu wenig Licht schaltet sich der Wechselrichter ab — Growatt hat dann keine Live-Verbindung zum Stick, eine Einrichtung ist nicht möglich. Warten, bis der Status grün ist (Tageslicht), dann einrichten."
-          },
-          "style": {
-            "opacity": 0.85,
-            "paddingBottom": "8px"
-          },
-          "xs": 12,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
-        },
-        "stickOnlineLabel": {
-          "type": "text",
-          "label": "label",
-          "default": "WR nicht verbunden",
+        "shineStatusTick": {
+          "type": "number",
+          "label": "shineStatusTick",
+          "default": 0,
           "readOnly": true,
           "hidden": true,
           "xs": 12
         },
-        "stickCloudOnline": {
+        "localStickSn": {
+          "type": "text",
+          "label": "localStickSn",
+          "default": "",
+          "hidden": true,
+          "xs": 12
+        },
+        "localPlantId": {
+          "type": "text",
+          "label": "localPlantId",
+          "default": "",
+          "hidden": true,
+          "xs": 12
+        },
+        "_localStickPanel": {
+          "type": "custom",
+          "name": "FroniusFakeSmSet/Components/LocalStickPanel",
+          "url": "custom/customComponents.js",
+          "guiApi": 2,
+          "i18n": true,
+          "xs": 12,
+          "newLine": true,
+          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "localSetupPending": {
           "type": "checkbox",
-          "label": "online",
+          "label": "pending",
           "default": false,
           "readOnly": true,
           "hidden": true,
@@ -435,61 +638,6 @@
           "hidden": true,
           "xs": 12
         },
-        "_setupHeader": {
-          "type": "header",
-          "text": {
-            "en": "3. Setup",
-            "de": "3. Einrichtung"
-          },
-          "size": 2,
-          "xs": 12,
-          "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
-        },
-        "_setupBlocked": {
-          "type": "staticText",
-          "text": {
-            "en": "„Setup stick“ is available when status is green. If it stays red: often night/low light — try again in daylight.",
-            "de": "„Stick einrichten“ ist verfügbar, sobald der Status grün ist. Bleibt er rot: oft Nacht/zu wenig Licht — bei Tageslicht erneut versuchen."
-          },
-          "xs": 12,
-          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (data.stickCloudOnline)"
-        },
-        "setupLocalStickBtn": {
-          "type": "sendTo",
-          "label": {
-            "en": "Setup stick",
-            "de": "Stick einrichten"
-          },
-          "command": "setupLocalStick",
-          "jsonData": "{}",
-          "useNative": true,
-          "showProcess": true,
-          "timeout": 180000,
-          "variant": "contained",
-          "xs": 12,
-          "sm": 6,
-          "md": 4,
-          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (!data.stickCloudOnline)"
-        },
-        "_localModeHeader": {
-          "type": "header",
-          "text": {
-            "en": "4. Local connection",
-            "de": "4. Lokale Verbindung"
-          },
-          "size": 2,
-          "xs": 12,
-          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (!data.localSetupVerified)"
-        },
-        "_localModeBlocked": {
-          "type": "staticText",
-          "text": {
-            "en": "The switch appears only after stick setup and a successful local connection test.",
-            "de": "Der Schalter erscheint erst, wenn der Stick eingerichtet ist und der Adapter eine lokale Verbindung bestätigt hat."
-          },
-          "xs": 12,
-          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (data.localSetupVerified)"
-        },
         "localEnabled": {
           "type": "checkbox",
           "label": "localEnabled",
@@ -497,30 +645,21 @@
           "hidden": true,
           "xs": 12
         },
-        "_localEnabledSwitch": {
-          "type": "state",
-          "oid": "info.localEnabled",
-          "control": "switch",
-          "label": {
-            "en": "Local connection active",
-            "de": "Lokale Verbindung aktiv"
-          },
-          "trueText": {
-            "en": "On",
-            "de": "An"
-          },
-          "falseText": {
-            "en": "Off",
-            "de": "Aus"
-          },
-          "help": {
-            "en": "Auto-on after successful setup. You can always turn it off; turn on only after verified setup.",
-            "de": "Nach erfolgreicher Einrichtung automatisch an. Immer manuell aus; an nur nach bestätigter Einrichtung."
-          },
-          "xs": 12,
-          "sm": 12,
-          "md": 6,
-          "hidden": "(data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local') || (!data.localSetupVerified)"
+        "stickCloudOnline": {
+          "type": "checkbox",
+          "label": "online",
+          "default": false,
+          "readOnly": true,
+          "hidden": true,
+          "xs": 12
+        },
+        "stickOnlineLabel": {
+          "type": "text",
+          "label": "label",
+          "default": "WR nicht verbunden",
+          "readOnly": true,
+          "hidden": true,
+          "xs": 12
         },
         "localExpertSettings": {
           "type": "panel",
@@ -531,26 +670,52 @@
           "collapsable": true,
           "xs": 12,
           "items": {
-            "localStickSn": {
-              "type": "text",
-              "label": {
-                "en": "Stick / datalogger SN",
-                "de": "Stick- / Datalogger-SN"
+            "_selectedStickHint": {
+              "type": "staticText",
+              "text": {
+                "en": "Stick SN is chosen under step 2. Host IP is chosen automatically on configure (override below if needed).",
+                "de": "Stick-SN unter Schritt 2. Host-IP wird beim Konfigurieren automatisch gesetzt (unten überschreibbar)."
               },
+              "xs": 12
+            },
+            "analyzeLocalNetworkBtn": {
+              "type": "sendTo",
+              "label": {
+                "en": "Analyze network",
+                "de": "Netzwerk prüfen"
+              },
+              "command": "analyzeLocalNetwork",
+              "jsonData": "{\"advertisedModbusIp\":\"${data.advertisedModbusIp}\",\"localPort\":\"${data.localPort}\",\"growattFeedMode\":\"${data.growattFeedMode}\"}",
+              "useNative": true,
+              "showProcess": true,
+              "timeout": 30000,
               "xs": 12,
               "sm": 6,
               "md": 4
             },
             "advertisedModbusIp": {
-              "type": "text",
+              "type": "selectSendTo",
+              "command": "listLocalHostIps",
               "label": {
-                "en": "This host IP (for stick server)",
-                "de": "Diese Host-IP (Stick-Server)"
+                "en": "Host IP for stick server",
+                "de": "Host-IP für Stick-Server"
               },
-              "readOnly": true,
+              "alsoDependsOn": [
+                "localPort"
+              ],
               "xs": 12,
               "sm": 6,
               "md": 4
+            },
+            "_localNetworkHintState": {
+              "type": "state",
+              "oid": "info.localNetworkHint",
+              "control": "text",
+              "label": {
+                "en": "Network analysis",
+                "de": "Netzwerkanalyse"
+              },
+              "xs": 12
             },
             "localForwardCloud": {
               "type": "checkbox",
@@ -596,6 +761,127 @@
             }
           },
           "hidden": "data.manufacturer !== 'growatt' || data.growattFeedMode !== 'local'"
+        },
+        "stickRedirects": {
+          "type": "json",
+          "label": "stickRedirects",
+          "default": {},
+          "hidden": true,
+          "xs": 12
+        },
+        "inverterVarsPanel": {
+          "type": "panel",
+          "label": {
+            "en": "Inverter variables",
+            "de": "WR-Variablen"
+          },
+          "collapsable": true,
+          "xs": 12,
+          "hidden": "data.manufacturer !== 'growatt'",
+          "items": {
+            "_invVarsHint": {
+              "type": "staticText",
+              "text": {
+                "en": "Enable datapoints under inverter.<SN>. Interval column follows Polling preset (Apply). Local: catalog rates (power often 5s).",
+                "de": "Datenpunkte unter inverter.<SN>. Intervall-Spalte folgt der Polling-Vorlage (Anwenden). Lokal: Catalog-Raten (Leistung oft 5s)."
+              },
+              "xs": 12
+            },
+            "inverterVars": {
+              "type": "table",
+              "label": {
+                "en": "Variables",
+                "de": "Variablen"
+              },
+              "xs": 12,
+              "noDelete": true,
+              "compact": true,
+              "items": [
+                {
+                  "type": "checkbox",
+                  "attr": "enabled",
+                  "title": {
+                    "en": "On",
+                    "de": "An"
+                  },
+                  "default": false,
+                  "width": "6%"
+                },
+                {
+                  "type": "text",
+                  "attr": "id",
+                  "title": "ID",
+                  "readOnly": true,
+                  "width": "12%"
+                },
+                {
+                  "type": "text",
+                  "attr": "kindLabel",
+                  "title": {
+                    "en": "Kind",
+                    "de": "Art"
+                  },
+                  "readOnly": true,
+                  "width": "10%"
+                },
+                {
+                  "type": "text",
+                  "attr": "label",
+                  "title": {
+                    "en": "Label",
+                    "de": "Bezeichnung"
+                  },
+                  "readOnly": true,
+                  "width": "22%"
+                },
+                {
+                  "type": "text",
+                  "attr": "families",
+                  "title": {
+                    "en": "WR types",
+                    "de": "WR-Typen"
+                  },
+                  "readOnly": true,
+                  "width": "26%"
+                },
+                {
+                  "type": "number",
+                  "attr": "intervalS",
+                  "title": {
+                    "en": "Interval (s)",
+                    "de": "Intervall (s)"
+                  },
+                  "min": 5,
+                  "max": 3600,
+                  "default": 120,
+                  "width": "14%"
+                }
+              ]
+            }
+          }
+        },
+        "_donateText": {
+          "type": "staticText",
+          "text": {
+            "en": "Free adapter — donations welcome.",
+            "de": "Kostenloser Adapter — Spenden willkommen."
+          },
+          "newLine": true,
+          "xs": 12,
+          "sm": 9,
+          "md": 10
+        },
+        "_donateBtn": {
+          "type": "staticImage",
+          "src": "paypal-donate-button.png",
+          "href": "https://paypal.me/MichaelHeckler",
+          "xs": 12,
+          "sm": 3,
+          "md": 2,
+          "style": {
+            "maxWidth": 147,
+            "height": "auto"
+          }
         }
       }
     },
@@ -617,17 +903,18 @@
         },
         "_gen24Setup": {
           "type": "staticText",
+          "format": "html",
           "text": {
-            "en": "Technician login required (Customer cannot add meters). On the Gen24 web UI: Device configuration → Components → Add component. Type: Fronius Smart Meter (TCP). IP = ioBroker IP below, Port 502, Modbus address = same as here (default 3, never 1 = primary). Application: Producer meter (Erzeugerzähler), Category: Inverter; leave the rest default. Then search Fronius below so this adapter knows the master.",
-            "de": "Techniker-Login nötig (Endkunde kann keine Zähler anlegen). Am Gen24: Gerätekonfiguration → Komponenten → Komponente hinzufügen. Typ: Fronius Smart Meter (TCP). IP = ioBroker-IP unten, Port 502, Modbus-Adresse = wie hier (Default 3, nie 1 = Primär). Anwendung: Erzeugerzähler, Kategorie: Wechselrichter; Rest Standard. Danach unten Fronius suchen, damit der Adapter den Master kennt."
+            "en": "<ol style=\"margin:0;padding-left:1.25rem;line-height:1.45\"><li>Gen24 web UI as <b>Technician</b>: Components → Add → Fronius Smart Meter (TCP).</li><li>IP = ioBroker IP below, Port <b>502</b>, Modbus address = Unit ID here (default <b>3</b>, never 1).</li><li>Application: <b>Producer meter</b> (Erzeugerzähler).</li><li>Then <b>Search Gen24</b> below and enable the master.</li></ol><p style=\"margin:8px 0 0;font-size:0.85rem;opacity:0.75\">Details: <a href=\"https://github.com/passuff/ioBroker.fronius-fake-sm/blob/main/README.md#gen24-add-fake-sm-as-secondary-meter\" target=\"_blank\" rel=\"noopener noreferrer\">README → Gen24</a>. Primo/Symo GEN24 only.</p>",
+            "de": "<ol style=\"margin:0;padding-left:1.25rem;line-height:1.45\"><li>Gen24-Web-UI als <b>Techniker</b>: Komponenten → Hinzufügen → Fronius Smart Meter (TCP).</li><li>IP = ioBroker-IP unten, Port <b>502</b>, Modbus-Adresse = Unit-ID hier (Default <b>3</b>, nie 1).</li><li>Anwendung: <b>Erzeugerzähler</b>.</li><li>Danach unten <b>Gen24 suchen</b> und Master anhaken.</li></ol><p style=\"margin:8px 0 0;font-size:0.85rem;opacity:0.75\">Details: <a href=\"https://github.com/passuff/ioBroker.fronius-fake-sm/blob/main/README.md#gen24-add-fake-sm-as-secondary-meter\" target=\"_blank\" rel=\"noopener noreferrer\">README → Gen24</a>. Nur Primo/Symo GEN24.</p>"
           },
           "xs": 12
         },
         "_froniusScan": {
           "type": "header",
           "text": {
-            "en": "Fronius master (network search)",
-            "de": "Fronius-Master (Netzwerksuche)"
+            "en": "Gen24 master (network search)",
+            "de": "Gen24-Master (Netzwerksuche)"
           },
           "size": 2,
           "xs": 12
@@ -635,16 +922,16 @@
         "_froniusHint": {
           "type": "staticText",
           "text": {
-            "en": "Select the inverter that already reports meters (master / primary SM). Search auto-picks the device with the highest meter count.",
-            "de": "Den Wechselrichter mit gemeldeten Zählern wählen (Master / Primär-SM). Die Suche wählt automatisch den mit der höchsten Zähleranzahl."
+            "en": "Pick the inverter that already reports meters (master). Empty list → search first.",
+            "de": "Wechselrichter mit gemeldeten Zählern wählen (Master). Leere Liste → zuerst suchen."
           },
           "xs": 12
         },
         "discoverFroniusBtn": {
           "type": "sendTo",
           "label": {
-            "en": "Search Fronius on network",
-            "de": "Fronius im Netzwerk suchen"
+            "en": "Search Gen24",
+            "de": "Gen24 suchen"
           },
           "command": "discoverFronius",
           "jsonData": "{}",
@@ -656,13 +943,24 @@
           "sm": 6,
           "md": 4
         },
+        "_froniusEmptyHint": {
+          "type": "staticText",
+          "text": {
+            "en": "No Gen24 found yet — search first, then enable the master.",
+            "de": "Noch kein Gen24 — zuerst suchen, dann Master anhaken."
+          },
+          "xs": 12,
+          "hidden": "data.froniusDevices && data.froniusDevices.length"
+        },
         "froniusDevices": {
           "type": "table",
           "label": {
-            "en": "Found Fronius inverters (enable master)",
-            "de": "Gefundene Fronius-WR (Master anhaken)"
+            "en": "Found Gen24 inverters (enable master)",
+            "de": "Gefundene Gen24-WR (Master anhaken)"
           },
           "xs": 12,
+          "noDelete": true,
+          "compact": true,
           "items": [
             {
               "type": "checkbox",
@@ -672,14 +970,14 @@
                 "de": "Nutzen"
               },
               "default": false,
-              "width": 60
+              "width": "8%"
             },
             {
               "type": "text",
               "attr": "ip",
               "title": "IP",
               "readOnly": true,
-              "width": 120
+              "width": "14%"
             },
             {
               "type": "text",
@@ -688,13 +986,15 @@
                 "en": "Hostname",
                 "de": "Hostname"
               },
-              "readOnly": true
+              "readOnly": true,
+              "width": "22%"
             },
             {
               "type": "text",
               "attr": "serial",
               "title": "SN",
-              "readOnly": true
+              "readOnly": true,
+              "width": "14%"
             },
             {
               "type": "text",
@@ -703,7 +1003,8 @@
                 "en": "Model",
                 "de": "Modell"
               },
-              "readOnly": true
+              "readOnly": true,
+              "width": "22%"
             },
             {
               "type": "text",
@@ -713,21 +1014,22 @@
                 "de": "Zähler"
               },
               "readOnly": true,
-              "width": 140
+              "width": "20%"
             }
           ]
         },
-        "advertisedModbusIp": {
-          "type": "text",
+        "_gen24HostIpHint": {
+          "type": "state",
+          "oid": "info.advertisedModbusIp",
+          "control": "text",
           "label": {
             "en": "ioBroker IP (for Gen24)",
             "de": "ioBroker-IP (für Gen24)"
           },
           "help": {
-            "en": "Always this host’s LAN IP. Enter it on Gen24 when adding the Modbus component.",
-            "de": "Immer die LAN-IP dieses Hosts. Am Gen24 beim Hinzufügen der Modbus-Komponente eintragen."
+            "en": "LAN IP of this host for Gen24 Modbus. Same value as Host IP under Local setup when set.",
+            "de": "LAN-IP dieses Hosts für Gen24-Modbus. Entspricht der Host-IP unter Lokal-Einrichtung, falls gesetzt."
           },
-          "readOnly": true,
           "xs": 12,
           "sm": 6,
           "md": 4
@@ -752,8 +1054,8 @@
         "expertSettings": {
           "type": "panel",
           "label": {
-            "en": "Expert settings",
-            "de": "Experten-Einstellung"
+            "en": "Expert: poll, pipeline, Fake SM",
+            "de": "Experten: Poll, Pipeline, Fake-SM"
           },
           "collapsable": true,
           "xs": 12,
@@ -761,8 +1063,8 @@
             "_expertScopeHint": {
               "type": "staticText",
               "text": {
-                "en": "All values are instance-wide (not per source device). Multiple Growatt devices are summed first, then smoothed into one Fake SM.",
-                "de": "Alles gilt instanzweit (nicht pro Quell-Gerät). Mehrere Growatt-Geräte werden zuerst summiert, dann zu einem Fake-SM geglättet."
+                "en": "Instance-wide: all Growatt devices are summed, then smoothed into one Fake SM.",
+                "de": "Instanzweit: alle Growatt-Geräte werden summiert, dann zu einem Fake-SM geglättet."
               },
               "xs": 12
             },
@@ -770,41 +1072,49 @@
               "type": "header",
               "text": {
                 "en": "Source fetch (cloud)",
-                "de": "Quelle Abruf (Cloud)"
+                "de": "Quellen-Abruf (Cloud)"
               },
               "size": 3,
               "xs": 12
             },
-            "pollIntervalS": {
+            "_pollingPresetHint": {
+              "type": "staticText",
+              "text": {
+                "en": "Cloud/Fake-SM poll numbers live under Fremd-WR → Polling preset (Apply there). Edit here only if you already applied a preset.",
+                "de": "Cloud-/Fake-SM-Poll-Zahlen stehen unter Fremd-WR → Polling-Vorlage (dort Anwenden). Hier nur editieren, wenn die Vorlage schon angewendet wurde."
+              },
+              "xs": 12
+            },
+            "froniusRatedW": {
               "type": "number",
               "label": {
-                "en": "Cloud poll interval (s)",
-                "de": "Cloud-Poll-Intervall (s)"
+                "en": "Fronius rated power (W)",
+                "de": "Fronius Nennleistung (W)"
               },
               "help": {
-                "en": "How often Growatt OpenAPI is polled in cloud mode. Also influences the local stale window.",
-                "de": "Wie oft Growatt OpenAPI im Cloud-Modus abgefragt wird. Beeinflusst auch das lokale Stale-Fenster."
+                "en": "Gen24 nameplate for daylight comparison (e.g. 10000). 0 = try API / skip relative check.",
+                "de": "Gen24-Nennleistung für Tages-Vergleich (z. B. 10000). 0 = API versuchen / Relativcheck überspringen."
               },
-              "min": 60,
-              "max": 300,
-              "default": 60,
+              "min": 0,
+              "max": 200000,
+              "default": 0,
               "xs": 12,
               "sm": 6,
               "md": 3
             },
-            "nightPollIntervalS": {
+            "growattRatedW": {
               "type": "number",
               "label": {
-                "en": "Night / zero-power poll (s)",
-                "de": "Nacht / Nullleistung Poll (s)"
+                "en": "Growatt rated fallback (W)",
+                "de": "Growatt Nennleistung Fallback (W)"
               },
               "help": {
-                "en": "Slower poll when last power is near zero or sample is soft-stale.",
-                "de": "Langsamerer Poll, wenn letzte Leistung nahe 0 oder Sample soft-stale ist."
+                "en": "Used only if device pmax is missing. Prefer pmax from device search.",
+                "de": "Nur wenn Geräte-pmax fehlt. Bevorzugt pmax aus der Gerätesuche."
               },
-              "min": 60,
-              "max": 3600,
-              "default": 300,
+              "min": 0,
+              "max": 200000,
+              "default": 0,
               "xs": 12,
               "sm": 6,
               "md": 3
@@ -817,19 +1127,6 @@
               },
               "size": 3,
               "xs": 12
-            },
-            "smoothIntervalS": {
-              "type": "number",
-              "label": {
-                "en": "Smooth / register tick (s)",
-                "de": "Glättungs-/Register-Takt (s)"
-              },
-              "min": 1,
-              "max": 30,
-              "default": 5,
-              "xs": 12,
-              "sm": 6,
-              "md": 3
             },
             "emaTauS": {
               "type": "number",
@@ -888,8 +1185,8 @@
               ],
               "default": "auto",
               "help": {
-                "en": "Auto: per enabled device, lock eBaseline on first valid sample; Fake-SM energy = Σ max(eTotal−baseline, 0). On every start the adapter waits for the Gen24 Modbus client, then reads Solar API Loc3 EnergyReal_WAC_Sum_Produced as truth (transient 0 Wh after reconnect is ignored). Baselines stay locked unless that counter diverges. Manual: classic global eTotal − offset.",
-                "de": "Auto: pro aktivem Gerät eBaseline beim ersten gültigen Sample sperren; Fake-SM-Energie = Σ max(eTotal−Baseline, 0). Bei jedem Start wartet der Adapter auf den Gen24-Modbus-Client und liest dann Solar-API Loc3 EnergyReal_WAC_Sum_Produced als Truth (transientes 0 Wh nach Reconnect wird ignoriert). Baselines bleiben gesperrt, außer der Zähler weicht ab. Manuell: klassisch global eTotal − Offset."
+                "en": "Auto: per-device baselines; Fake-SM energy = Σ max(eTotal−baseline, 0). Manual: global eTotal − offset. Details: README.",
+                "de": "Auto: Baselines pro Gerät; Fake-SM-Energie = Σ max(eTotal−Baseline, 0). Manuell: global eTotal − Offset. Details: README."
               },
               "xs": 12,
               "sm": 6,
@@ -902,8 +1199,8 @@
                 "de": "eTotal-Offset (kWh, manueller Modus)"
               },
               "help": {
-                "en": "Only used when mode = Manual. Fake-SM energy = source eTotal − this offset. Prefer Auto baselines for multi-WR and config recovery.",
-                "de": "Nur bei Modus = Manuell. Fake-SM-Energie = Quell-eTotal − dieser Offset. Für Mehr-WR und Config-Wiederherstellung Auto-Baselines bevorzugen."
+                "en": "Only in Manual mode. Prefer Auto baselines for multi-WR.",
+                "de": "Nur im manuellen Modus. Bei Mehr-WR Auto-Baselines bevorzugen."
               },
               "default": 0,
               "hidden": "data.eOffsetMode !== 'manual'",
@@ -924,8 +1221,8 @@
               "timeout": 15000,
               "variant": "outlined",
               "help": {
-                "en": "Clears per-device baselines (and local). Next samples re-lock. May cause a Fronius/Solar.web energy jump — only if you intentionally want a soft restart.",
-                "de": "Löscht Geräte-Baselines (und lokal). Nächste Samples sperren neu. Kann einen Fronius/Solar.web-Energie-Sprung verursachen — nur bei gewolltem Soft-Neustart."
+                "en": "Clears baselines; next samples re-lock. May jump Solar.web energy — use only intentionally.",
+                "de": "Löscht Baselines; nächste Samples sperren neu. Kann Solar.web-Energie springen — nur bewusst nutzen."
               },
               "xs": 12,
               "sm": 6,

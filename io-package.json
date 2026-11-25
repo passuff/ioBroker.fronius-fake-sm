@@ -1,83 +1,87 @@
 {
   "common": {
     "name": "fronius-fake-sm",
-    "version": "0.5.32",
+    "version": "0.5.55",
     "news": {
-      "0.5.32": {
-        "en": "Skip Gen24 native persist when lastPublished unchanged (stops restart loop)",
-        "de": "Kein Gen24-Native-Persist wenn lastPublished unverändert (stoppt Restart-Loop)"
+      "0.5.55": {
+        "en": "Local multi-stick: per-SN redirect registry; stick list without plant filter; patch/remove per selected stick",
+        "de": "Lokal Multi-Stick: Umleitungs-Register pro SN; Stick-Liste ohne Anlagen-Filter; Patchen/Entfernen pro gewähltem Stick"
       },
-      "0.5.31": {
-        "en": "Gap fix: keep Gen24 baselines on restart; lastPublished←relSum fail-safe; tests",
-        "de": "Gap-Fix: Gen24-Baselines beim Restart behalten; lastPublished←relSum Fail-safe; Tests"
+      "0.5.54": {
+        "en": "Gen24 Fake-SM visibility health; Modbus client state; isolate lab stick from feed path",
+        "de": "Gen24 Fake-SM Sichtbarkeits-Health; Modbus-Client-State; Lab-Stick vom Feed-Pfad isolieren"
       },
-      "0.5.30": {
-        "en": "Never adopt Gen24 0 kWh as truth when a prior Fake-SM counter exists",
-        "de": "Gen24 0 kWh nie als Truth übernehmen, wenn ein früherer Fake-SM-Zähler existiert"
+      "0.5.53": {
+        "en": "WR vars: family filter, orphan prune, holding readback, write ack feedback, clock setting",
+        "de": "WR-Vars: Familienfilter, Orphan-Prune, Holding-Readback, Write-Ack-Feedback, Uhr-Setting"
       },
-      "0.5.29": {
-        "en": "Ignore Gen24 transient 0 kWh after Modbus reconnect; require stable Loc3 reading",
-        "de": "Ignoriert Gen24-Transient 0 kWh nach Modbus-Reconnect; stabile Loc3-Lesung nötig"
+      "0.5.52": {
+        "en": "Selectable inverter variables as datapoints (read+safe write); cloud/local sample rates",
+        "de": "Wählbare WR-Variablen als Datenpunkte (Lesen+sicheres Schreiben); Cloud/Lokal Sample-Rates"
       },
-      "0.5.28": {
-        "en": "Wait for Gen24 Modbus client before Solar-API energy truth seed",
-        "de": "Wartet auf Gen24-Modbus-Client vor Solar-API-Energie-Truth-Seed"
+      "0.5.51": {
+        "en": "FW 3.1.1.7 AES session KDF from 0x41 handshake; attempt local AES-CBC decrypt",
+        "de": "FW 3.1.1.7 AES-Session-KDF aus 0x41-Handshake; lokaler AES-CBC-Decrypt-Versuch"
       },
-      "0.5.27": {
-        "en": "Gen24 truth seed after Modbus up + retries (Loc3 may drop during restart)",
-        "de": "Gen24-Truth-Seed nach Modbus-Start + Retries (Loc3 kann beim Restart kurz fehlen)"
+      "0.5.50": {
+        "en": "Single stick session (drop zombies); unknown-FW frame health warning; proxyClientCount",
+        "de": "Eine Stick-Session (Zombies verwerfen); Warnung bei unbekannter FW; proxyClientCount"
       },
-      "0.5.26": {
-        "en": "On every start: seed Fake-SM energy from Gen24 Solar API (Location meter truth)",
-        "de": "Bei jedem Start: Fake-SM-Energie vom Gen24 Solar-API-Zähler (Location) seeden"
+      "0.5.49": {
+        "en": "dropProxyClients sendTo for handshake capture; no boot native write for pending",
+        "de": "dropProxyClients sendTo für Handshake-Capture; kein Boot-Native-Write für pending"
       },
-      "0.5.25": {
-        "en": "Fix lastPublished: Number(null) must not seed eProduced at 0",
-        "de": "Fix lastPublished: Number(null) darf eProduced nicht mit 0 seeden"
+      "0.5.48": {
+        "en": "Do not persist localSetupPending on boot (avoids restart loop during frame capture)",
+        "de": "localSetupPending beim Boot nicht persistieren (kein Restart-Loop während Frame-Capture)"
       },
-      "0.5.24": {
-        "en": "Auto eTotal baselines per device + lastPublished continuity (fail-safe vs Fronius jumps)",
-        "de": "Auto-eTotal-Baselines pro Gerät + lastPublished-Kontinuität (Fail-safe gegen Fronius-Sprünge)"
+      "0.5.47": {
+        "en": "Proxy always on by default; unified live stick status; frame capture for FW 3.1.1.7 analysis",
+        "de": "Proxy standardmäßig immer aktiv; einheitlicher Live-Stick-Status; Frame-Capture für FW-3.1.1.7-Analyse"
       },
-      "0.5.23": {
-        "en": "Expert UI split: source fetch / pipeline / Fake SM; clearer eTotal offset help",
-        "de": "Experten-UI: Quelle Abruf / Pipeline / Fake-SM; klarere eTotal-Offset-Hilfe"
+      "0.5.46": {
+        "en": "Fix stick lockout: proxy stays up while a redirect is known, Remove-redirect verifies the stick left the proxy before clearing flags",
+        "de": "Behebt Stick-Aussperrung: Proxy bleibt aktiv solange eine Umleitung bekannt ist, Umleitung-entfernen prüft vor dem Zurücksetzen, dass der Stick den Proxy verlassen hat"
       },
-      "0.5.22": {
-        "en": "Growatt Cloud header with small logo",
-        "de": "Growatt Cloud Header mit kleinem Logo"
+      "0.5.45": {
+        "en": "Document supported Growatt sticks (Wifi-X / Lan-X) and Gen24-only Fronius target",
+        "de": "Dokumentiert unterstützte Growatt-Sticks (Wifi-X / Lan-X) und Fronius-Ziel nur Gen24"
       },
-      "0.5.21": {
-        "en": "Growatt Cloud header + fixed dropdown icon (base64)",
-        "de": "Growatt-Cloud-Header + Dropdown-Icon per Base64 repariert"
+      "0.5.44": {
+        "en": "Local steps as bordered tiles (label/status/action grouped per row)",
+        "de": "Lokale Schritte als Kacheln mit Rahmen (Label/Status/Aktion pro Zeile gruppiert)"
       },
-      "0.5.20": {
-        "en": "Remove oversized Growatt static images; keep select icon only",
-        "de": "Übergroße Growatt-Bilder entfernt; nur Select-Icon behalten"
+      "0.5.43": {
+        "en": "info.localEnabled read-only (auto from verified; no Objects switch)",
+        "de": "info.localEnabled nur lesbar (automatisch aus verified; kein Objects-Schalter)"
       },
-      "0.5.19": {
-        "en": "Growatt manufacturer icon in admin selection",
-        "de": "Growatt-Hersteller-Icon in der Admin-Auswahl"
+      "0.5.42": {
+        "en": "Refresh Shine status after connect; night hint under step 3",
+        "de": "Shine-Status nach Cloud-Verbinden aktualisieren; Nacht-Hinweis unter Schritt 3"
       },
-      "0.5.18": {
-        "en": "Updated adapter icon",
-        "de": "Aktualisiertes Adapter-Icon"
+      "0.5.41": {
+        "en": "Local 5-step workflow; OpenAPI bridge until stick connected; auto local feed without switch",
+        "de": "Lokal 5-Schritte-Workflow; OpenAPI-Übergang bis Stick verbunden; lokal automatisch ohne Schalter"
       },
-      "0.5.17": {
-        "en": "New adapter icon (Fronius chart/sun)",
-        "de": "Neues Adapter-Icon (Fronius Chart/Sonne)"
+      "0.5.40": {
+        "en": "Local workflow overview: why/what, status board (setup/connection/feed), next-step hints",
+        "de": "Lokal-Workflow-Überblick: Wozu/Was, Status-Board (Einrichtung/Verbindung/Feed), Als-Nächstes"
       },
-      "0.5.16": {
-        "en": "Local calibrate: one-shot OpenAPI truth + seed retry until lock",
-        "de": "Lokal-Calibrate: OpenAPI-Truth einmalig + Seed-Retry bis Lock"
+      "0.5.39": {
+        "en": "Setup unlock requires Growatt remote command (not Shine list alone) — fixes green badge vs setup error",
+        "de": "Setup nur bei Remote-Befehl (nicht nur Shine-Liste) — behebt grünes Badge vs. Setup-Fehler"
       },
-      "0.5.15": {
-        "en": "Keep rate-limit cooldown after partial poll; preserve Modbus port on discover",
-        "de": "Rate-Limit-Cooldown nach Teilsample behalten; Modbus-Port bei Discover erhalten"
+      "0.5.38": {
+        "en": "Restore button on cloud path; block ambiguous NIC setup; orphan-safe sanitize; network hint state",
+        "de": "Restore-Button bei Cloud-Pfad; Setup bei Mehrdeutigkeit blockieren; Sanitize ohne Orphan; Netzwerk-Hinweis-State"
       },
-      "0.5.14": {
-        "en": "Audit fixes: local seed calibrate, proxy lifecycle, stale→0 W, Shine HTML≠online",
-        "de": "Audit-Fixes: Lokal-Seed-Calibrate, Proxy-Lifecycle, stale→0 W, Shine HTML≠online"
+      "0.5.37": {
+        "en": "Explain/restore local stick setup; network IP preflight; clear verified on cloud mode",
+        "de": "Lokal-Setup erklären/rückgängig; Netzwerk-IP-Preflight; Verified bei Cloud-Modus löschen"
+      },
+      "0.5.36": {
+        "en": "Stick setup no longer writes native mid-redirect (fixes DB closed / aborted setup)",
+        "de": "Stick-Einrichtung schreibt Native nicht mehr mitten im Redirect (behebt DB closed / abgebrochenes Setup)"
       }
     },
     "titleLang": {
@@ -85,8 +89,8 @@
       "de": "Fronius Fake Smart Meter"
     },
     "desc": {
-      "en": "Serves a Fake Fronius Smart Meter (Modbus TCP) from Growatt cloud and optional local stick proxy.",
-      "de": "Stellt einen Fake Fronius Smart Meter (Modbus TCP) aus Growatt-Cloud und optional lokalem Stick-Proxy bereit."
+      "en": "Fake Fronius Smart Meter (Modbus TCP) for Gen24 secondary / producer meter. Growatt OpenAPI cloud, optional local ShineWiFi-X proxy (:5279).",
+      "de": "Fake Fronius Smart Meter (Modbus TCP) für Gen24-Sekundär-/Erzeugerzähler. Growatt-OpenAPI-Cloud, optional lokaler ShineWiFi-X-Proxy (:5279)."
     },
     "authors": [
       "Passuff"
@@ -142,7 +146,13 @@
     "growattPassword": "",
     "growattShineUrl": "https://server.growatt.com",
     "growattOpenApiUrl": "https://openapi.growatt.com/",
+    "growattCloudAuth": "openapi",
+    "localPlantId": "",
+    "shineStatusTick": 0,
     "localStickSn": "",
+    "cloudStickRedirectActive": false,
+    "cloudStickRedirectSn": "",
+    "stickRedirects": {},
     "stickCloudOnline": false,
     "stickOnlineLabel": "WR nicht verbunden",
     "stickStatusText": "",
@@ -150,7 +160,8 @@
     "powerFields": "ppv,pac,outPower,powerOfPhotovoltaic,chargePower",
     "powerSign": -1,
     "powerKwThreshold": 0,
-    "pollIntervalS": 60,
+    "pollingTemplate": "openapi",
+    "pollIntervalS": 120,
     "nightPollIntervalS": 300,
     "smoothIntervalS": 5,
     "emaTauS": 20,
@@ -174,10 +185,18 @@
     "froniusIp": "",
     "froniusSerial": "",
     "froniusHostname": "",
+    "froniusRatedW": 0,
+    "growattRatedW": 0,
+    "daylightUtilThreshold": 0.05,
+    "dayWindowStartHour": 6,
+    "dayWindowEndHour": 22,
+    "expectedIdleMaxHours": 14,
     "advertisedModbusIp": "",
+    "localNetworkHint": "",
     "localEnabled": false,
     "localSetupVerified": false,
     "localSetupPending": false,
+    "localProxyAlwaysOn": true,
     "localHost": "0.0.0.0",
     "localPort": 5279,
     "localForwardCloud": true,
@@ -193,7 +212,234 @@
     "localEtotalKind": "u32",
     "localEtotalScale": 0.1,
     "localVacOffset": "",
-    "localFacOffset": ""
+    "localFacOffset": "",
+    "inverterVars": [
+      {
+        "id": "pac",
+        "enabled": true,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "AC power",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "ppv",
+        "enabled": false,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "PV power",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "vpv1",
+        "enabled": false,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "PV1 voltage",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix"
+      },
+      {
+        "id": "ipv1",
+        "enabled": false,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "PV1 current",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix"
+      },
+      {
+        "id": "vac1",
+        "enabled": true,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Grid voltage L1",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "fac",
+        "enabled": true,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Grid frequency",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "status",
+        "enabled": true,
+        "intervalS": 180,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Status",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "temp",
+        "enabled": false,
+        "intervalS": 180,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Inverter temperature",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "eToday",
+        "enabled": true,
+        "intervalS": 300,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Energy today",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "eTotal",
+        "enabled": true,
+        "intervalS": 300,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Energy total",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "pactogrid",
+        "enabled": false,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Export power",
+        "families": "sph,mix,spa,tlx,max,mod"
+      },
+      {
+        "id": "pactouser",
+        "enabled": false,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Import power",
+        "families": "sph,mix,spa,tlx,max,mod"
+      },
+      {
+        "id": "soc",
+        "enabled": true,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Battery SOC",
+        "families": "sph,mix,spa,tlx"
+      },
+      {
+        "id": "pcharge",
+        "enabled": true,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Charge power",
+        "families": "sph,mix,spa,tlx"
+      },
+      {
+        "id": "pdischarge",
+        "enabled": true,
+        "intervalS": 120,
+        "kind": "read",
+        "kindLabel": "Read",
+        "label": "Discharge power",
+        "families": "sph,mix,spa,tlx"
+      },
+      {
+        "id": "onOff",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "Inverter on/off",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "activePowerRate",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "Active power rate",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      },
+      {
+        "id": "exportLimitEnable",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "Export limit enable",
+        "families": "tlx,min,mic,max,mod,sph,mix"
+      },
+      {
+        "id": "exportLimitRate",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "Export limit rate",
+        "families": "tlx,min,mic,max,mod,sph,mix"
+      },
+      {
+        "id": "chargePower",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "Charge power rate",
+        "families": "tlx,min"
+      },
+      {
+        "id": "dischargePower",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "Discharge power rate",
+        "families": "tlx,min"
+      },
+      {
+        "id": "chargeStopSoc",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "Charge stop SOC",
+        "families": "tlx,min"
+      },
+      {
+        "id": "dischargeStopSoc",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "Discharge stop SOC",
+        "families": "tlx,min"
+      },
+      {
+        "id": "acCharge",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "AC charge enable",
+        "families": "tlx,min"
+      },
+      {
+        "id": "clock",
+        "enabled": false,
+        "intervalS": 300,
+        "kind": "write",
+        "kindLabel": "Write",
+        "label": "Inverter clock",
+        "families": "min,tlx,mic,max,mod,inv,sph,mix,spa,storage"
+      }
+    ]
   },
   "objects": [],
   "instanceObjects": [
@@ -228,6 +474,58 @@
         "read": true,
         "write": false,
         "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.modbusClientConnected",
+      "type": "state",
+      "common": {
+        "name": "Gen24 Modbus TCP client connected",
+        "type": "boolean",
+        "role": "indicator",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.gen24MeterVisible",
+      "type": "state",
+      "common": {
+        "name": "Gen24 Solar API sees Fake-SM Loc",
+        "type": "boolean",
+        "role": "indicator",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.gen24MeterPower",
+      "type": "state",
+      "common": {
+        "name": "Gen24 Fake-SM power from Solar API",
+        "type": "number",
+        "role": "value.power",
+        "unit": "W",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.gen24MeterLastSeen",
+      "type": "state",
+      "common": {
+        "name": "Last time Gen24 reported Fake-SM Visible",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false
       },
       "native": {}
     },
@@ -279,6 +577,60 @@
         "read": true,
         "write": false,
         "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.froniusPvW",
+      "type": "state",
+      "common": {
+        "name": "Fronius site PV power (daylight proxy)",
+        "type": "number",
+        "role": "value.power",
+        "unit": "W",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.froniusUtil",
+      "type": "state",
+      "common": {
+        "name": "Fronius PV utilisation of rated power",
+        "type": "number",
+        "role": "value",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.expectedGrowattW",
+      "type": "state",
+      "common": {
+        "name": "Expected Growatt power from Fronius utilisation",
+        "type": "number",
+        "role": "value.power",
+        "unit": "W",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.lastNonZeroPower",
+      "type": "state",
+      "common": {
+        "name": "Timestamp of last non-zero Growatt power",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false,
+        "def": 0
       },
       "native": {}
     },
@@ -400,9 +752,9 @@
       "common": {
         "name": "Local connection active",
         "type": "boolean",
-        "role": "switch",
+        "role": "indicator",
         "read": true,
-        "write": true,
+        "write": false,
         "def": false
       },
       "native": {}
@@ -485,10 +837,23 @@
       "native": {}
     },
     {
+      "_id": "info.localNetworkHint",
+      "type": "state",
+      "common": {
+        "name": "Local network analysis summary",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
       "_id": "info.stickOnline",
       "type": "state",
       "common": {
-        "name": "Stick reachable via Growatt cloud",
+        "name": "Stick online (Shine or local proxy)",
         "type": "boolean",
         "role": "indicator",
         "read": true,
@@ -511,6 +876,84 @@
       "native": {}
     },
     {
+      "_id": "info.stickStatus",
+      "type": "state",
+      "common": {
+        "name": "Unified stick status (Shine + proxy + SERVERIP)",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.stickTarget",
+      "type": "state",
+      "common": {
+        "name": "Stick SERVERIP target label",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": "unbekannt"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.stickFw",
+      "type": "state",
+      "common": {
+        "name": "Stick firmware version (Shine best-effort)",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.localFrameStatus",
+      "type": "state",
+      "common": {
+        "name": "Local frame decode health",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.localFrameUnknown",
+      "type": "state",
+      "common": {
+        "name": "Local frames unknown / undecodable",
+        "type": "boolean",
+        "role": "indicator",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.proxyClientCount",
+      "type": "state",
+      "common": {
+        "name": "Active stick TCP sessions on local proxy",
+        "type": "number",
+        "role": "value",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    {
       "_id": "info.localSetupVerified",
       "type": "state",
       "common": {
@@ -520,6 +963,58 @@
         "read": true,
         "write": false,
         "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.localWorkflowStatus",
+      "type": "state",
+      "common": {
+        "name": "Local workflow status summary",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.wfStickConfigured",
+      "type": "state",
+      "common": {
+        "name": "ShineWifi stick configured label",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": "nicht konfiguriert"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.wfLocalConnected",
+      "type": "state",
+      "common": {
+        "name": "Local stick connection label",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": "nicht hergestellt"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.stickRedirectSummary",
+      "type": "state",
+      "common": {
+        "name": "Per-stick redirect summary on local proxy",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
       },
       "native": {}
     },

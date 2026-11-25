@@ -1,4 +1,6 @@
 node_modules/
+src-admin/node_modules/
+src-admin/build/
 *.tgz
 .env
 .env.*

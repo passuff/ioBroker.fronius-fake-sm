@@ -59,15 +59,18 @@ assert.strictEqual(pickMasterFronius([]), null);
 const adapter = {
     _rateLimitBackoffS: 0,
     _rateLimitUntil: 0,
+    _pollFloorS: 120,
     _lastPollOkAt: Date.now(),
-    config: { pollIntervalS: 60 },
+    config: { pollIntervalS: 120 },
 };
-assert.strictEqual(noteRateLimit(adapter), 120);
+// Floor 120 → +30 = 150; cooldown max(180,150) = 180
+assert.strictEqual(noteRateLimit(adapter), 180);
+assert.strictEqual(adapter._pollFloorS, 150);
 assert.ok(adapter._rateLimitUntil > Date.now());
 assert.ok(hasFreshSample(adapter));
-assert.ok(staleAfterS(adapter) >= 90);
+assert.ok(staleAfterS(adapter) >= 180);
 
-adapter._lastPollOkAt = Date.now() - 200000;
+adapter._lastPollOkAt = Date.now() - 400000;
 assert.ok(!hasFreshSample(adapter));
 
 console.log('adminDefaults.test.js OK');

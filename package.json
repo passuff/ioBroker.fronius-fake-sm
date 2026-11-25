@@ -1,6 +1,6 @@
 {
   "name": "iobroker.fronius-fake-sm",
-  "version": "0.5.54",
+  "version": "0.5.55",
   "description": "Fake Fronius Smart Meter for Gen24; Growatt OpenAPI and optional ShineWiFi-X local proxy",
   "author": {
     "name": "Passuff"
@@ -16,6 +16,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/passuff/ioBroker.fronius-fake-sm.git"
+  },
+  "funding": {
+    "type": "paypal",
+    "url": "https://paypal.me/MichaelHeckler"
   },
   "engines": {
     "node": ">=20"
@@ -44,13 +48,15 @@
     "README.md"
   ],
   "scripts": {
-    "test:unit": "node test/smoother.test.js && node test/registers.test.js && node test/adminDefaults.test.js && node test/froniusDiscover.test.js && node test/froniusMeters.test.js && node test/froniusMeterTruth.test.js && node test/rateLimit.test.js && node test/growattProto.test.js && node test/growattAesKdf.test.js && node test/growattAesDataFeed.test.js && node test/growattCommands.test.js && node test/growattShineSession.test.js && node test/stickSetupMessages.test.js && node test/localStickSelect.test.js && node test/stickOnlineState.test.js && node test/setupReadyGate.test.js && node test/localWorkflowStatus.test.js && node test/localBridge.test.js && node test/localStatusAdmin.test.js && node test/connectShineRefresh.test.js && node test/localEnabledReadonly.test.js && node test/stickSetupNoRestart.test.js && node test/localNetworkAnalyze.test.js && node test/stickRestore.test.js && node test/stickRedirectLockout.test.js && node test/stickStatus.test.js && node test/frameCapture.test.js && node test/frameHealth.test.js && node test/sessionReplace.test.js && node test/sessionMultiStick.test.js && node test/sanitizeCloudClear.test.js && node test/ambiguousSetupBlock.test.js && node test/auditFixes.test.js && node test/energyBaselines.test.js && node test/adaptivePollLocalArm.test.js && node test/offlineArmRateLimit.test.js && node test/shineCloudAuth.test.js && node test/inverterVarsCatalog.test.js && node test/inverterVarsSync.test.js && node test/inverterVarsRemediation.test.js && node test/localLayouts.test.js && node test/persistNative.test.js && node test/localCalibrationTruth.test.js && node test/growattServerClient.test.js",
+    "build:admin": "node scripts/build-admin.mjs",
+    "test:unit": "node test/smoother.test.js && node test/registers.test.js && node test/adminDefaults.test.js && node test/froniusDiscover.test.js && node test/froniusMeters.test.js && node test/froniusMeterTruth.test.js && node test/rateLimit.test.js && node test/growattProto.test.js && node test/growattAesKdf.test.js && node test/growattAesDataFeed.test.js && node test/growattCommands.test.js && node test/growattShineSession.test.js && node test/stickSetupMessages.test.js && node test/localStickSelect.test.js && node test/stickOnlineState.test.js && node test/setupReadyGate.test.js && node test/localWorkflowStatus.test.js && node test/localBridge.test.js && node test/localStatusAdmin.test.js && node test/connectShineRefresh.test.js && node test/localEnabledReadonly.test.js && node test/stickSetupNoRestart.test.js && node test/localNetworkAnalyze.test.js && node test/stickRestore.test.js && node test/stickRedirectLockout.test.js && node test/stickStatus.test.js && node test/frameCapture.test.js && node test/frameHealth.test.js && node test/sessionReplace.test.js && node test/sessionMultiStick.test.js && node test/sanitizeCloudClear.test.js && node test/ambiguousSetupBlock.test.js && node test/auditFixes.test.js && node test/energyBaselines.test.js && node test/adaptivePollLocalArm.test.js && node test/offlineArmRateLimit.test.js && node test/shineCloudAuth.test.js && node test/inverterVarsCatalog.test.js && node test/inverterVarsSync.test.js && node test/inverterVarsRemediation.test.js && node test/localLayouts.test.js && node test/persistNative.test.js && node test/localCalibrationTruth.test.js && node test/growattServerClient.test.js && node test/stickRedirectRegistry.test.js && node test/multiStickRedirect.test.js && node test/stickRedirectReconcile.test.js && node test/localStickPanelConfig.test.js && node test/pollingTemplates.test.js && node test/applyPollingTemplateAdmin.test.js && node test/pollingPresetWalkthrough.test.js && node test/setupBusyClear.test.js && node test/setupInProgressDefer.test.js && node test/setupQuiet.test.js && node test/redirectVerify.test.js",
     "test:package": "mocha test/package.js --exit",
     "test:integration": "mocha test/integration.js --exit",
     "test": "npm run test:unit && npm run test:package && npm run test:integration",
     "test:ci": "npm run test:unit && npm run test:package",
     "release": "release-script",
-    "start": "node main.js --logs"
+    "start": "node main.js --logs",
+    "prepublishOnly": "npm run build:admin"
   },
   "mocha": {
     "require": [

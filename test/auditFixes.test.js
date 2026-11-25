@@ -1,7 +1,14 @@
 'use strict';
 
 const assert = require('assert');
-const { isCloudOk, onlineLabel } = require('../lib/stickOnline');
+const {
+    isCloudOk,
+    isPermissionDenied,
+    onlineLabel,
+    plantSelectOption,
+    stickSelectOption,
+    MSG,
+} = require('../lib/stickOnline');
 const { trySeedLayout, AutoCalibrator, SEED_LAYOUTS } = require('../lib/growattRecord');
 const { Smoother } = require('../lib/smoother');
 const { encodeFrame } = require('../lib/growattProto');
@@ -26,9 +33,41 @@ assert.strictEqual(isCloudOk('<html>login</html>'), false);
 assert.strictEqual(isCloudOk('not-json'), false);
 assert.strictEqual(isCloudOk(null), false);
 assert.strictEqual(isCloudOk({ success: true, msg: '192.168.1.19' }), true);
+assert.strictEqual(isCloudOk({ success: true, msg: '' }), true);
 assert.strictEqual(isCloudOk({ success: true, msg: 'inv_set_datalog_lost' }), false);
 assert.strictEqual(isCloudOk({ success: false }), false);
 assert.strictEqual(isCloudOk({ msg: '47.1.2.3' }), true);
+assert.strictEqual(isPermissionDenied({ success: false, msg: 'error_permission_denied' }), true);
+assert.strictEqual(isCloudOk({ success: false, msg: 'error_permission_denied' }), false);
+assert.ok(MSG.permissionDenied('XGD6CJH2Y0').includes('XGD6CJH2Y0'));
+assert.ok(MSG.noStickSn.includes('wählen') || MSG.noStickSn.includes('Auswahl'));
+assert.deepStrictEqual(plantSelectOption({ id: '10053900', plantName: 'PV-Spielhaus' }), {
+    value: '10053900',
+    label: 'PV-Spielhaus (10053900)',
+    noTranslation: true,
+});
+assert.deepStrictEqual(
+    stickSelectOption({ sn: 'XGD6CK737N', lost: false, lastUpdateTime: '2026-11-22 13:35:00' }),
+    {
+        value: 'XGD6CK737N',
+        label: 'XGD6CK737N — online · 2026-11-22 13:35:00 · Umleitung: —',
+        noTranslation: true,
+    },
+);
+assert.deepStrictEqual(
+    stickSelectOption({
+        sn: 'XGD6CJH2Y0',
+        lost: false,
+        lastUpdateTime: '2026-11-24 00:17:01',
+        raw: { firmwareVersion: '3.1.0.5' },
+    }),
+    {
+        value: 'XGD6CJH2Y0',
+        label: 'XGD6CJH2Y0 — online · FW 3.1.0.5 · 2026-11-24 00:17:01 · Umleitung: —',
+        noTranslation: true,
+    },
+);
+assert.ok(stickSelectOption({ sn: 'OLD', lost: true }).label.includes('offline'));
 
 assert.strictEqual(onlineLabel(true), 'WR verbunden');
 
@@ -62,11 +101,11 @@ const frozen = sm.update(0, 100, undefined, 1, { freezeEnergy: true, forcePowerZ
 assert.strictEqual(frozen.powerW, 0);
 assert.ok(frozen.changed);
 
-// staleAfter longer in local mode
-const cloudAdapter = { config: { pollIntervalS: 60, growattFeedMode: 'cloud' } };
-const localAdapter = { config: { pollIntervalS: 60, growattFeedMode: 'local' } };
+// staleAfter longer in local mode; cloud stale follows effective ~120s poll
+const cloudAdapter = { config: { pollIntervalS: 120, growattFeedMode: 'cloud' } };
+const localAdapter = { config: { pollIntervalS: 120, growattFeedMode: 'local' } };
 assert.ok(staleAfterS(localAdapter) >= 300);
-assert.ok(staleAfterS(cloudAdapter) >= 90);
+assert.ok(staleAfterS(cloudAdapter) >= 180);
 assert.ok(hardStaleAfterS(localAdapter) > staleAfterS(localAdapter));
 
 // Rate-limit: partial commit must keep cooldown
@@ -244,14 +283,15 @@ function testSeedRetryUntilLock() {
 
 function testSoftBackoff() {
     const adapter = {
-        config: { pollIntervalS: 60, nightPollIntervalS: 300, powerEpsilonW: 5, growattFeedMode: 'cloud' },
+        config: { pollIntervalS: 120, nightPollIntervalS: 300, powerEpsilonW: 5, growattFeedMode: 'cloud' },
         _rateLimitUntil: 0,
+        _pollFloorS: 120,
         _lastPollOkAt: Date.now() - 10 * 60 * 1000,
         _lastSample: { power_w: -200, e_total_kwh: 10 },
     };
     const ms = pollIntervalMs(adapter);
     assert.ok(ms <= 180000);
-    assert.ok(ms >= 60000, `soft backoff should stay near day, got ${ms}`);
+    assert.ok(ms >= 120000, `soft backoff should stay near day, got ${ms}`);
     assert.ok(ms < 300000, 'must not jump to full night when lastP active');
 
     adapter._lastSample = { power_w: 0, e_total_kwh: 10 };
@@ -259,11 +299,14 @@ function testSoftBackoff() {
     assert.strictEqual(night, 300000);
 }
 
-function testSmoothTickHardStale() {
+async function testSmoothTickHardStale() {
     const states = {};
+    const cloudCfg = { pollIntervalS: 120, growattFeedMode: 'cloud', u1: 230, u2: 230, u3: 230, frequency: 50 };
     const adapter = {
-        config: { pollIntervalS: 60, growattFeedMode: 'cloud', u1: 230, u2: 230, u3: 230, frequency: 50 },
-        _lastPollOkAt: Date.now() - hardStaleAfterS({ config: { pollIntervalS: 60, growattFeedMode: 'cloud' } }) * 1000 - 1000,
+        config: cloudCfg,
+        _pollFloorS: 120,
+        _rateLimitUntil: 0,
+        _lastPollOkAt: Date.now() - hardStaleAfterS({ config: cloudCfg, _pollFloorS: 120 }) * 1000 - 1000,
         _lastSample: { power_w: -400, e_total_kwh: 50, u1: 230, f: 50 },
         _staleWarned: false,
         _hardStaleCleared: false,
@@ -283,9 +326,13 @@ function testSmoothTickHardStale() {
     };
     adapter.smoother.update(-400, 50, undefined, 1, {});
     smoothTick(adapter, 1);
+    // hard-stale side effects run in a void async IIFE
+    await new Promise((r) => setImmediate(r));
+    await new Promise((r) => setImmediate(r));
     assert.strictEqual(adapter.smoother.state.powerW, 0);
     assert.strictEqual(states['info.connection'].val, false);
-    assert.strictEqual(states['info.localConnection'].val, false);
+    // hard-stale must not force localConnection=false (proxy stick can still be up)
+    assert.strictEqual(states['info.localConnection'], undefined);
 }
 
 (async () => {
@@ -296,7 +343,7 @@ function testSmoothTickHardStale() {
     await testFetchCalibrateTruthOnce();
     testSeedRetryUntilLock();
     testSoftBackoff();
-    testSmoothTickHardStale();
+    await testSmoothTickHardStale();
     console.log('auditFixes.test.js OK');
 })().catch((err) => {
     console.error(err);
