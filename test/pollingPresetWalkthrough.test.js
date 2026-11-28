@@ -92,6 +92,7 @@ async function applyViaSendTo(config, pollingTemplate) {
     native = await applyViaSendTo(native, 'local');
     assert.strictEqual(native.pollingTemplate, 'local');
     assert.strictEqual(native.smoothIntervalS, 1);
+    assert.strictEqual(native.emaTauS, 3);
     assert.strictEqual(native.pollIntervalS, 300);
     assert.strictEqual(native.nightPollIntervalS, 600);
     assert.strictEqual(
@@ -117,6 +118,7 @@ async function applyViaSendTo(config, pollingTemplate) {
             pollIntervalS: native.pollIntervalS,
             nightPollIntervalS: native.nightPollIntervalS,
             smoothIntervalS: native.smoothIntervalS,
+            emaTauS: native.emaTauS,
         },
         TEMPLATES.local,
     );

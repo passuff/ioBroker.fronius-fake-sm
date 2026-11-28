@@ -58,9 +58,11 @@ const {
             localStickSn: 'XGD6CK737N',
             localPort: 5279,
             localForwardCloud: true,
+            devices: [{ enabled: true, stickSn: 'XGD6CK737N', inverterSn: 'FRJ7CJD0S7' }],
             stickRedirects: {
                 XGD6CK737N: { state: 'verified', plantName: 'PV-Spielhaus', serverIp: '192.168.1.19' },
                 XGD6CJH2Y0: { state: 'pending', plantName: 'Lab' },
+                GPG0CHF1CT: { state: 'verified', plantName: 'ShouldHide' },
             },
         },
         localServer: {
@@ -85,8 +87,14 @@ const {
     assert.strictEqual(snap.setup.canPatch, false);
     assert.strictEqual(snap.setup.canRestore, true);
     assert.ok(Array.isArray(snap.sticks));
-    assert.strictEqual(snap.sticks.length, 2);
-    assert.ok(snap.sticks.every((s) => s.sn && s.redirectState));
+    assert.strictEqual(snap.sticks.length, 3);
+    assert.ok(snap.sticks.every((s) => s.sn && s.redirectState && s.role));
+    const feedStick = snap.sticks.find((s) => s.sn === 'XGD6CK737N');
+    const proxyStick = snap.sticks.find((s) => s.sn === 'GPG0CHF1CT');
+    assert.strictEqual(feedStick.role, 'feed');
+    assert.strictEqual(feedStick.name, 'PV-Spielhaus');
+    assert.strictEqual(proxyStick.role, 'proxyOnly');
+    assert.strictEqual(proxyStick.name, undefined);
 
     const emptySnap = buildLocalWorkflowSnapshot({
         config: { localStickSn: 'NEWSN' },

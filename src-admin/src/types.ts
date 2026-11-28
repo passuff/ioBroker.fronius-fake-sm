@@ -2,6 +2,7 @@ export type StickOption = { label: string; value: string };
 
 export type SnapshotStick = {
     sn: string;
+    role?: 'feed' | 'proxyOnly';
     name?: string;
     online: boolean;
     redirectState: string;

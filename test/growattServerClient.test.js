@@ -61,9 +61,19 @@ function makeFakeSock() {
     const server = makeFakeServer();
     const sock = makeFakeSock();
 
+    let clientsWhenPeer = null;
+    server.onPeer = () => {
+        clientsWhenPeer = server._clients.size;
+    };
+
     assert.doesNotThrow(() => attachStickClient(server, sock));
     assert.strictEqual(server.connectCount, 1);
     assert.strictEqual(server._clients.size, 1);
+    assert.strictEqual(
+        clientsWhenPeer,
+        1,
+        'onPeer must run after _clients.add so localConnection sees the socket',
+    );
 
     const frame = encodeFrame({
         proto: 0x0006,

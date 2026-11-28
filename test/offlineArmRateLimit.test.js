@@ -17,45 +17,57 @@ const {
 } = require('../lib/stickSetup');
 
 async function testPollOnceRateLimitKeepsGreen() {
-    const states = {};
-    const adapter = {
-        config: {
-            growattToken: 't',
-            growattFeedMode: 'cloud',
-            pollIntervalS: 120,
-            u1: 230,
-            frequency: 50,
-        },
-        _enabledDevices: [{ deviceSn: 'SN1', enabled: true }],
-        _pollFloorS: 120,
-        _rateLimitUntil: 0,
-        _rateLimitBackoffS: 0,
-        _lastFailWasRateLimit: false,
-        _lastPollOkAt: 0,
-        _lastSample: null,
-        log: { info() {}, warn() {}, debug() {} },
-        _getEnabledDevices() {
-            return this._enabledDevices;
-        },
-        _clientFor() {
-            return {
-                async fetch() {
-                    throw new GrowattRateLimitError('FREQUENTLY_ACCESS');
-                },
-            };
-        },
-        async setStateAsync(id, st) {
-            states[id] = st;
-        },
-        async setStateChangedAsync(id, st) {
-            states[id] = st;
-        },
+    const makeAdapter = (lastPollOkAt) => {
+        const states = {};
+        const adapter = {
+            config: {
+                growattToken: 't',
+                growattFeedMode: 'cloud',
+                pollIntervalS: 120,
+                u1: 230,
+                frequency: 50,
+            },
+            _enabledDevices: [{ deviceSn: 'SN1', enabled: true }],
+            _pollFloorS: 120,
+            _rateLimitUntil: 0,
+            _rateLimitBackoffS: 0,
+            _lastFailWasRateLimit: false,
+            _lastPollOkAt: lastPollOkAt,
+            _lastSample: null,
+            log: { info() {}, warn() {}, debug() {} },
+            states,
+            _getEnabledDevices() {
+                return this._enabledDevices;
+            },
+            _clientFor() {
+                return {
+                    async fetch() {
+                        throw new GrowattRateLimitError('FREQUENTLY_ACCESS');
+                    },
+                };
+            },
+            async setStateAsync(id, st) {
+                states[id] = st;
+            },
+            async setStateChangedAsync(id, st) {
+                states[id] = st;
+            },
+        };
+        return adapter;
     };
-    await pollOnce(adapter);
-    assert.strictEqual(states['info.connection'].val, true, '429 must keep amp green');
-    assert.ok(String(states['info.lastError'].val).includes('OpenAPI-Cooldown'));
-    assert.strictEqual(adapter._lastFailWasRateLimit, true);
-    assert.ok(adapter._rateLimitUntil > Date.now());
+
+    const cold = makeAdapter(0);
+    await pollOnce(cold);
+    // No successful sample yet — do not paint green forever on a cold-start 429.
+    assert.strictEqual(cold.states['info.connection'].val, false, 'cold-start 429 must not fake green');
+    assert.ok(String(cold.states['info.lastError'].val).includes('OpenAPI-Cooldown'));
+    assert.strictEqual(cold._lastFailWasRateLimit, true);
+    assert.ok(cold._rateLimitUntil > Date.now());
+
+    // After at least one OK poll, throttle keeps the amp green.
+    const warm = makeAdapter(Date.now());
+    await pollOnce(warm);
+    assert.strictEqual(warm.states['info.connection'].val, true, '429 after OK sample keeps amp green');
 }
 
 async function testHardStaleSuppressAfterCooldownCleared() {

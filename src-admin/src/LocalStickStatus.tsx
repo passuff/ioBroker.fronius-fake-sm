@@ -93,12 +93,11 @@ export function LocalStickStatus(props: Props): React.JSX.Element {
                                 )}
                                 <ListItemText
                                     primary={st.sn}
-                                    secondary={`${st.online ? tr('online') : tr('offline')} · ${redirectLabel(
-                                        k => tr(k),
-                                        st.redirectState,
-                                    )}${st.name ? ` · ${st.name}` : ''}${
-                                        pending && !st.online ? ` · ${tr('Waiting short')}` : ''
-                                    }`}
+                                    secondary={`${st.online ? tr('online') : tr('offline')} · ${
+                                        st.role === 'feed' ? tr('Fake-SM') : tr('proxy only')
+                                    } · ${redirectLabel(k => tr(k), st.redirectState)}${
+                                        st.role === 'feed' && st.name ? ` · ${st.name}` : ''
+                                    }${pending && !st.online ? ` · ${tr('Waiting short')}` : ''}`}
                                     slotProps={{
                                         primary: { sx: { fontWeight: 600, fontSize: '0.95rem' } },
                                         secondary: { sx: { fontSize: '0.8rem' } },

@@ -127,13 +127,13 @@ Growatt `FREQUENTLY_ACCESS` triggers a cooldown; Modbus keeps the last sample. A
 
 Tab **Fremd-WR** → collapsible **Polling preset** + **Apply** fills cloud poll / night poll / Fake-SM smooth intervals (edit numbers under Modbus → Expert afterwards → `custom`):
 
-| Preset | `pollIntervalS` | `nightPollIntervalS` | `smoothIntervalS` (Fake SM) |
-|--------|-----------------|----------------------|-----------------------------|
-| **OpenAPI** (slowest) | 120 | 300 | 5 |
-| **Shine** login | 60 (≥30 floor) | 300 | 5 |
-| **Local** stick | 300 (cloud fallback only) | 600 | **1** |
+| Preset | `pollIntervalS` | `nightPollIntervalS` | `smoothIntervalS` (Fake SM) | `emaTauS` |
+|--------|-----------------|----------------------|-----------------------------|---------|
+| **OpenAPI** (slowest) | 120 | 300 | 5 | 20 |
+| **Shine** login | 60 (≥30 floor) | 300 | 5 | 20 |
+| **Local** stick | 300 (cloud fallback only) | 600 | **1** | **3** |
 
-Fake-SM at **1 s** is the useful maximum for Gen24 Modbus. ioBroker inverter vars stay throttled (local power ~5 s catalog default; user may go down to 1 s for power). Do not write every state every second.
+Fake-SM at **1 s** is the useful maximum for Gen24 Modbus holding registers. Gen24 typically polls FC3 in bursts (~5–6 s), and the web UI / Solar API can lag further — 1 s Modbus does **not** mean 1 Hz in the Fronius UI. Local preset uses a shorter EMA (`emaTauS=3`) so registers track stick pac within a few seconds. ioBroker inverter vars stay throttled (local power ~5 s catalog default; user may go down to 1 s for power). Do not write every state every second.
 
 ### Energy continuity (eTotal / Fake-SM)
 

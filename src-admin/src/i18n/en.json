@@ -19,6 +19,8 @@
   "waiting": "waiting",
   "redirected": "redirected",
   "configured": "configured",
+  "Fake-SM": "Fake-SM",
+  "proxy only": "proxy only",
   "Remove redirect": "Remove redirect",
   "Remove redirect confirm": "Reset this stick to Growatt cloud and remove the local redirect?",
   "Cancel": "Cancel",

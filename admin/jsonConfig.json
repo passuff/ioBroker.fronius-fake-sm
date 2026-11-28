@@ -200,8 +200,8 @@
                 "de": "Glättungs-/Register-Takt (s)"
               },
               "help": {
-                "en": "Fake-SM Modbus update. Local preset: 1s (max useful for Gen24).",
-                "de": "Fake-SM Modbus-Takt. Lokal-Vorlage: 1s (sinnvolles Maximum für Gen24)."
+                "en": "Fake-SM Modbus holding update. Local preset: 1s (max useful on Modbus). Gen24 UI/Solar API is often slower than 1 Hz.",
+                "de": "Fake-SM Modbus-Holding-Takt. Lokal-Vorlage: 1s (sinnvolles Maximum am Modbus). Gen24-UI/Solar-API oft langsamer als 1 Hz."
               },
               "min": 1,
               "max": 30,
@@ -1134,6 +1134,10 @@
                 "en": "EMA tau (s)",
                 "de": "EMA tau (s)"
               },
+              "help": {
+                "en": "Power smoothing time constant. Local preset uses 3s so registers track stick pac quickly; OpenAPI/Shine stay at 20s.",
+                "de": "Zeitkonstante der Leistungsglättung. Lokal-Vorlage: 3s (Register folgt Stick schnell); OpenAPI/Shine: 20s."
+              },
               "default": 20,
               "xs": 12,
               "sm": 6,
@@ -1309,6 +1313,34 @@
               "xs": 12,
               "sm": 4,
               "md": 2
+            },
+            "_labHeader": {
+              "type": "header",
+              "text": {
+                "en": "Lab / FOTA (dangerous)",
+                "de": "Lab / FOTA (gefährlich)"
+              },
+              "size": 3,
+              "xs": 12
+            },
+            "labCommandsEnabled": {
+              "type": "checkbox",
+              "label": {
+                "en": "Enable lab/FOTA admin commands",
+                "de": "Lab-/FOTA-Admin-Befehle aktivieren",
+                "fr": "Activer les commandes admin lab/FOTA",
+                "es": "Activar comandos admin lab/FOTA"
+              },
+              "help": {
+                "en": "Off by default. When on, sendTo lab/FOTA/reboot/AES commands are allowed (lab sticks only). Never enable on production plants.",
+                "de": "Standard aus. Wenn an, sind sendTo Lab/FOTA/Reboot/AES erlaubt (nur Lab-Sticks). Nie an Produktionsanlagen aktivieren.",
+                "fr": "Désactivé par défaut. Si activé, autorise sendTo lab/FOTA/reboot/AES (sticks lab uniquement).",
+                "es": "Desactivado por defecto. Si está activo, permite sendTo lab/FOTA/reboot/AES (solo sticks de lab)."
+              },
+              "default": false,
+              "xs": 12,
+              "sm": 6,
+              "md": 6
             }
           }
         }

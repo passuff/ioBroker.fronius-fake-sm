@@ -73,13 +73,13 @@ function fakeAdapter(native) {
     assert.strictEqual(calls.objectWrites.length, 0);
     assert.strictEqual(adapter.config.stickCloudOnline, true);
 
-    // Newly selected stick is persisted
+    // Selection change: in-memory only — never native (avoids restart/login storms)
     await persistStickOnlineFlag(adapter, true, { localStickSn: 'NEWSTICK01', stickStatusText: 'x' });
-    assert.strictEqual(calls.objectWrites.length, 1);
-    assert.strictEqual(native.localStickSn, 'NEWSTICK01');
+    assert.strictEqual(calls.objectWrites.length, 0, 'status must never write native');
+    assert.strictEqual(native.localStickSn, 'XGD6CK737N', 'native SN unchanged');
     assert.strictEqual(adapter.config.localStickSn, 'NEWSTICK01');
 
-    // Mid-setup: selection change must stay in-memory (native write would restart & abort redirect)
+    // Mid-setup: selection change must stay in-memory
     const mid = {
         stickCloudOnline: false,
         stickOnlineLabel: MSG.labelOffline,
@@ -96,7 +96,7 @@ function fakeAdapter(native) {
     assert.strictEqual(mid.localStickSn, 'OLD', 'native object unchanged during setup');
 
     const n = { stickCloudOnline: false, stickOnlineLabel: MSG.labelOffline, localStickSn: 'A', localPlantId: '1' };
-    assert.strictEqual(applyStickStatusToNative(n, false, MSG.labelOffline, { localPlantId: undefined }), false);
+    assert.strictEqual(applyStickStatusToNative(n, false, MSG.labelOffline, { localStickSn: 'Z' }), false);
     assert.strictEqual(n.localStickSn, 'A');
     assert.strictEqual(n.localPlantId, '1');
 

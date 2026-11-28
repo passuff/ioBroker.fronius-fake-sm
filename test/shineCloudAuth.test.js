@@ -22,7 +22,8 @@ const {
     assert.ok(/^[0-9a-f]+$/.test(h));
 }
 
-assert.strictEqual(looksLikeRateLimit(403, ''), true);
+assert.strictEqual(looksLikeRateLimit(429, ''), true);
+assert.strictEqual(looksLikeRateLimit(403, ''), false, 'bare 403 is auth/WAF, not throttle wording');
 assert.strictEqual(looksLikeRateLimit(200, 'FREQUENTLY_ACCESS'), true);
 assert.strictEqual(looksLikeRateLimit(200, 'ok'), false);
 

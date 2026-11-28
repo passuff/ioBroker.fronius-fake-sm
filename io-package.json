@@ -194,6 +194,8 @@
     "advertisedModbusIp": "",
     "localNetworkHint": "",
     "localEnabled": false,
+    "labCommandsEnabled": false,
+    "fotaLabStickSns": "",
     "localSetupVerified": false,
     "localSetupPending": false,
     "localProxyAlwaysOn": true,
@@ -474,6 +476,19 @@
         "read": true,
         "write": false,
         "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.modbusPort",
+      "type": "state",
+      "common": {
+        "name": "Actual Modbus TCP listen port",
+        "type": "number",
+        "role": "value",
+        "read": true,
+        "write": false,
+        "def": 502
       },
       "native": {}
     },

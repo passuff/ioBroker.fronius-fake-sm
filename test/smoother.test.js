@@ -28,4 +28,23 @@ assert.strictEqual(r.eProducedKwh, eFreeze, 'freezeEnergy keeps energy');
 assert.strictEqual(r.powerW, pFreeze, 'freezeEnergy keeps power');
 assert.ok(r.frozen, 'frozen flag');
 
+// Local preset: tau=3 tracks a step much faster than tau=20 (1s ticks, 5s window)
+{
+    const slow = new Smoother({ emaTauS: 20, maxDeltaWPerTick: 5000, powerEpsilonW: 1 });
+    const fast = new Smoother({ emaTauS: 3, maxDeltaWPerTick: 5000, powerEpsilonW: 1 });
+    let t = 2000;
+    slow.update(-100, null, t, 1);
+    fast.update(-100, null, t, 1);
+    for (let i = 0; i < 5; i++) {
+        t += 1;
+        slow.update(-100, null, t, 1);
+        fast.update(-100, null, t, 1);
+    }
+    assert.ok(
+        Math.abs(fast.state.powerW + 100) < Math.abs(slow.state.powerW + 100),
+        `tau=3 closer to target after 5s: fast=${fast.state.powerW} slow=${slow.state.powerW}`,
+    );
+    assert.ok(Math.abs(fast.state.powerW + 100) < 20, `tau=3 should be near -100, got ${fast.state.powerW}`);
+}
+
 console.log('smoother.test.js OK');

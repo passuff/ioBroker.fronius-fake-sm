@@ -41,6 +41,7 @@ assert.strictEqual(applied.pollingTemplate, 'local');
 assert.strictEqual(applied.pollIntervalS, 300);
 assert.strictEqual(applied.nightPollIntervalS, 600);
 assert.strictEqual(applied.smoothIntervalS, 1);
+assert.strictEqual(applied.emaTauS, 3);
 assert.strictEqual(applied.growattFeedMode, 'local');
 assert.strictEqual(applied.inverterVars.find((r) => r.id === 'pac').intervalS, getCatalogEntry('pac').localIntervalS);
 assert.strictEqual(

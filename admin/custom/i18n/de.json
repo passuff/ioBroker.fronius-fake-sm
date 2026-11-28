@@ -19,6 +19,8 @@
   "waiting": "wartet",
   "redirected": "umgeleitet",
   "configured": "konfiguriert",
+  "Fake-SM": "Fake-SM",
+  "proxy only": "nur Proxy",
   "Remove redirect": "Umleitung entfernen",
   "Remove redirect confirm": "Diesen Stick auf Growatt-Cloud zurücksetzen und die lokale Umleitung entfernen?",
   "Cancel": "Abbrechen",

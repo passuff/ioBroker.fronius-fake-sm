@@ -80,5 +80,8 @@
   "Stick server IP (enter this in Growatt)": "IP servidor stick (introducir en Growatt)",
   "Forward stick traffic to Growatt cloud": "Reenviar tráfico del stick a la nube Growatt",
   "Local listen port": "Puerto de escucha local",
-  "Upstream IP override (empty = auto)": "Override IP upstream (vacío = auto)"
+  "Upstream IP override (empty = auto)": "Override IP upstream (vacío = auto)",
+  "Enable lab/FOTA admin commands": "Activar comandos admin lab/FOTA",
+  "Off by default. When on, sendTo lab/FOTA/reboot/AES commands are allowed (lab sticks only). Never enable on production plants.": "Desactivado por defecto. Si está activo, permite sendTo lab/FOTA/reboot/AES (solo sticks de lab). Nunca activar en plantas de producción.",
+  "Lab / FOTA (dangerous)": "Lab / FOTA (peligroso)"
 }

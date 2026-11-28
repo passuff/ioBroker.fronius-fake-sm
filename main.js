@@ -112,9 +112,37 @@ class FroniusFakeSm extends utils.Adapter {
     }
 
     async onReady() {
+        try {
+            await this._onReadyBody();
+        } catch (err) {
+            this.log.error(`onReady failed: ${err && err.stack ? err.stack : err}`);
+            try {
+                await this.setStateAsync('info.connection', { val: false, ack: true });
+                await this.setStateAsync('info.lastError', {
+                    val: `Startfehler: ${err && err.message ? err.message : err}`,
+                    ack: true,
+                });
+            } catch {
+                // ignore
+            }
+        }
+    }
+
+    async _onReadyBody() {
+        // Pause Shine /login before any other onReady work (lab lockout / WAF).
+        const { applyShinePauseFromConfig } = require('./lib/localStatusAdmin');
+        applyShinePauseFromConfig(this);
+
         migrateLegacyDeviceConfig(this);
         applySelectedFroniusFromTable(this);
+        {
+            const { syncFeedSelectionFromDevices } = require('./lib/localProxyMode');
+            await syncFeedSelectionFromDevices(this);
+        }
         await ensureFakeSmDefaults(this);
+        if (this._stopping) {
+            return;
+        }
         await ensurePollingTemplate(this);
         await ensureInverterVarsConfig(this);
         await ensureGrowattTokenUsable(this);
@@ -142,12 +170,18 @@ class FroniusFakeSm extends utils.Adapter {
 
         // Provisional seed so Modbus does not advertise 0 kWh while Gen24 reconnects
         await seedEnergyFallback(this, 'provisional');
+        if (this._stopping) {
+            return;
+        }
 
+        // Only enforce peer allowlist when Gen24 IP is known — advertisedModbusIp is THIS host.
+        const allowedRemoteIps = cfg.froniusIp ? [String(cfg.froniusIp)] : [];
         this.modbus = new FroniusModbusServer({
             host: cfg.modbusHost || '0.0.0.0',
             port: Number(cfg.modbusPort ?? 502),
             unitId: Number(cfg.modbusUnitId ?? 3),
             fakeUniqueId: Number(cfg.fakeUniqueId ?? 3),
+            allowedRemoteIps,
             log: (m) => this.log.info(m),
             debug: (m) => this.log.debug(m),
             error: (m) => this.log.error(m),
@@ -174,11 +208,29 @@ class FroniusFakeSm extends utils.Adapter {
         try {
             await this.modbus.start();
             await this.setStateAsync('info.modbusListening', { val: true, ack: true });
+            await this.setStateAsync('info.modbusPort', {
+                val: Number(this.modbus.port) || Number(cfg.modbusPort ?? 502),
+                ack: true,
+            });
+            if (this.modbus.usedFallbackPort) {
+                await this.setStateAsync('info.lastError', {
+                    val: `Modbus lauscht auf Port ${this.modbus.port} (Fallback) — Gen24 muss denselben Port nutzen`,
+                    ack: true,
+                });
+                this.log.warn(
+                    `Modbus fallback port ${this.modbus.port} active — Gen24 secondary meter must match`,
+                );
+            }
             await publishModbusClientConnected(this, false);
             pushEnergyToModbus(this);
         } catch (err) {
             await this.setStateAsync('info.modbusListening', { val: false, ack: true });
             await publishModbusClientConnected(this, false);
+            await this.setStateAsync('info.connection', { val: false, ack: true });
+            await this.setStateAsync('info.lastError', {
+                val: `Modbus bind failed: ${err.message}`,
+                ack: true,
+            });
             this.log.error(
                 `Cannot bind Modbus ${cfg.modbusHost}:${cfg.modbusPort}: ${err.message}. ` +
                     'On Linux, port 502 needs capability or root; free the port first.',
@@ -198,8 +250,14 @@ class FroniusFakeSm extends utils.Adapter {
             startSettingsHoldingPoll(this);
         }
         await publishLocalWorkflowStatus(this);
+        if (this._stopping) {
+            return;
+        }
 
         await finalizeEnergySeedAfterModbus(this);
+        if (this._stopping) {
+            return;
+        }
         startGen24MeterMonitor(this, { firstDelayMs: 20000 });
 
         this._lastSample = {
@@ -258,7 +316,8 @@ class FroniusFakeSm extends utils.Adapter {
         } else {
             const shineAuth = isShineCloudAuth(this);
             if (shineAuth) {
-                this._pollFloorS = Math.max(30, Number(this._pollFloorS) || 60);
+                // Constructor defaults OpenAPI 120 — reset Shine floor once at start.
+                this._pollFloorS = Math.max(30, 60);
                 if (!cfg.growattUser || !cfg.growattPassword) {
                     this.log.error('Shine cloud auth — growattUser/Password missing');
                     await this.setStateAsync('info.connection', { val: false, ack: true });
@@ -285,12 +344,16 @@ class FroniusFakeSm extends utils.Adapter {
             }
         }
 
+        if (this._stopping) {
+            return;
+        }
+
         const cloudAuth = isShineCloudAuth(this) ? 'shine' : 'openapi';
         const effPollS = effectivePollIntervalS(this);
         const firstDelayMs = Math.max(15, Math.min(effPollS, 60)) * 1000;
         this._pollTimer = setTimeout(() => {
             pollOnce(this)
-                .catch((err) => this.log.error(`Poll error: ${err.message}`))
+                .catch((err) => this.log.error(`Poll error: ${err && err.stack ? err.stack : err}`))
                 .finally(() => scheduleNextPoll(this));
         }, firstDelayMs);
         this.log.info(
@@ -503,6 +566,25 @@ class FroniusFakeSm extends utils.Adapter {
             }
             return;
         }
+        if (
+            obj.command === 'sendFotaParamSetLab' ||
+            obj.command === 'sendLabTypeFrame' ||
+            obj.command === 'rebootLabStick' ||
+            obj.command === 'setLabUartAesKey'
+        ) {
+            if (!this.config.labCommandsEnabled) {
+                this.log.warn(`lab command ${obj.command} blocked (labCommandsEnabled=false)`);
+                if (obj.callback) {
+                    this.sendTo(
+                        obj.from,
+                        obj.command,
+                        { error: 'labCommandsEnabled is false — enable in Expert config' },
+                        obj.callback,
+                    );
+                }
+                return;
+            }
+        }
         if (obj.command === 'sendFotaParamSetLab') {
             try {
                 const { handleSendFotaParamSetLab } = require('./lib/labFotaAdmin');
@@ -511,6 +593,7 @@ class FroniusFakeSm extends utils.Adapter {
                     this.sendTo(obj.from, obj.command, result, obj.callback);
                 }
             } catch (err) {
+                this.log.warn(`sendFotaParamSetLab: ${err.message}`);
                 if (obj.callback) {
                     this.sendTo(obj.from, obj.command, { error: String(err.message || err) }, obj.callback);
                 }
@@ -525,6 +608,7 @@ class FroniusFakeSm extends utils.Adapter {
                     this.sendTo(obj.from, obj.command, result, obj.callback);
                 }
             } catch (err) {
+                this.log.warn(`sendLabTypeFrame: ${err.message}`);
                 if (obj.callback) {
                     this.sendTo(obj.from, obj.command, { error: String(err.message || err) }, obj.callback);
                 }
@@ -539,6 +623,7 @@ class FroniusFakeSm extends utils.Adapter {
                     this.sendTo(obj.from, obj.command, result, obj.callback);
                 }
             } catch (err) {
+                this.log.warn(`rebootLabStick: ${err.message}`);
                 if (obj.callback) {
                     this.sendTo(obj.from, obj.command, { error: String(err.message || err) }, obj.callback);
                 }
@@ -548,11 +633,17 @@ class FroniusFakeSm extends utils.Adapter {
         if (obj.command === 'setLabUartAesKey') {
             try {
                 const msg = obj.message || {};
-                const sn = String(msg.sn || 'XGD6CJH2Y0');
+                const sn = String(msg.sn || this.config.localStickSn || '').trim().toUpperCase();
                 const key = String(msg.key || '');
                 const iv = msg.iv != null ? String(msg.iv) : undefined;
-                if (key.length !== 32) {
+                if (!/^[0-9a-fA-F]{32}$/.test(key)) {
                     throw new Error('key must be 32 ASCII hex chars');
+                }
+                if (iv != null && !/^[0-9a-fA-F]{16,32}$/.test(iv)) {
+                    throw new Error('iv must be 16–32 ASCII hex chars');
+                }
+                if (!sn) {
+                    throw new Error('sn missing');
                 }
                 if (!this.localServer || typeof this.localServer.installUartAesKey !== 'function') {
                     throw new Error('localServer.installUartAesKey unavailable');
@@ -566,16 +657,17 @@ class FroniusFakeSm extends utils.Adapter {
                         iv: iv || key.slice(16, 32),
                         source: 'uart',
                     });
-                } catch {
-                    // ignore
+                } catch (err) {
+                    this.log.debug(`rememberAesSession: ${err.message}`);
                 }
                 this.log.info(
-                    `setLabUartAesKey SN=${sn} installed=${result.installed} serials=${(result.serials || []).join(',')}`
+                    `setLabUartAesKey SN=${sn} installed=${result.installed} serials=${(result.serials || []).join(',')}`,
                 );
                 if (obj.callback) {
                     this.sendTo(obj.from, obj.command, result, obj.callback);
                 }
             } catch (err) {
+                this.log.warn(`setLabUartAesKey: ${err.message}`);
                 if (obj.callback) {
                     this.sendTo(obj.from, obj.command, { error: String(err.message || err) }, obj.callback);
                 }
@@ -611,6 +703,10 @@ class FroniusFakeSm extends utils.Adapter {
             if (this._persistLayoutTimer) {
                 clearTimeout(this._persistLayoutTimer);
             }
+            if (this._persistPublishedTimer) {
+                clearTimeout(this._persistPublishedTimer);
+                this._persistPublishedTimer = null;
+            }
             stopStickOnlineMonitor(this);
             stopGen24MeterMonitor(this);
             stopSettingsHoldingPoll(this);
@@ -627,6 +723,17 @@ class FroniusFakeSm extends utils.Adapter {
             await stopWithBudget(this.localServer);
             this.localServer = null;
             await stopWithBudget(this.modbus);
+            try {
+                const { persistLastPublishedNative } = require('./lib/energyBaselines');
+                await Promise.race([
+                    persistLastPublishedNative(this).catch((err) => {
+                        this.log.debug(`persistLastPublishedNative: ${err.message}`);
+                    }),
+                    new Promise((r) => setTimeout(r, 800)),
+                ]);
+            } catch (err) {
+                this.log.debug(`persistLastPublishedNative: ${err.message}`);
+            }
             try {
                 await this.setStateAsync('info.connection', { val: false, ack: true });
                 await this.setStateAsync('info.modbusListening', { val: false, ack: true });

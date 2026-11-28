@@ -335,6 +335,55 @@ async function testSmoothTickHardStale() {
     assert.strictEqual(states['info.localConnection'], undefined);
 }
 
+/** powerSmooth must publish absolute moves even when per-tick EMA delta < powerEpsilonW. */
+async function testSmoothTickPublishesAbsolutePower() {
+    const states = {};
+    const adapter = {
+        config: {
+            pollIntervalS: 300,
+            growattFeedMode: 'local',
+            u1: 230,
+            u2: 230,
+            u3: 230,
+            frequency: 50,
+            powerEpsilonW: 5,
+        },
+        _pollFloorS: 300,
+        _rateLimitUntil: 0,
+        _lastPollOkAt: Date.now(),
+        _lastSample: { power_w: -100, e_total_kwh: 10, u1: 230, f: 50 },
+        _staleWarned: false,
+        _hardStaleCleared: false,
+        // Slow EMA: each 1s tick moves << 5 W toward -100 from 0
+        smoother: new Smoother({ emaTauS: 20, maxDeltaWPerTick: 5000, powerEpsilonW: 5 }),
+        modbus: {
+            updateFromMeter(m) {
+                return { i1: m.powerW / 230 };
+            },
+        },
+        log: { info() {}, warn() {} },
+        async setStateAsync(id, st) {
+            states[id] = st;
+        },
+        async setStateChangedAsync(id, st) {
+            states[id] = st;
+        },
+    };
+    for (let i = 0; i < 3; i++) {
+        smoothTick(adapter, 1);
+        await new Promise((r) => setImmediate(r));
+    }
+    assert.ok(states['meter.powerSmooth'], 'powerSmooth state written');
+    assert.ok(
+        Math.abs(states['meter.powerSmooth'].val) > 0,
+        `powerSmooth must leave 0 (got ${states['meter.powerSmooth'].val})`,
+    );
+    assert.ok(
+        Math.abs(states['meter.powerSmooth'].val - adapter.smoother.state.powerW) < 0.2,
+        'published powerSmooth tracks smoother state',
+    );
+}
+
 (async () => {
     await testRateLimitKeepCooldown();
     await testVerifyIdempotent();
@@ -344,6 +393,7 @@ async function testSmoothTickHardStale() {
     testSeedRetryUntilLock();
     testSoftBackoff();
     await testSmoothTickHardStale();
+    await testSmoothTickPublishesAbsolutePower();
     console.log('auditFixes.test.js OK');
 })().catch((err) => {
     console.error(err);

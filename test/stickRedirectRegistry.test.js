@@ -39,6 +39,36 @@ const {
     assert.deepStrictEqual(listRedirectedSns(cfg), ['AAA', 'BBB']);
     assert.deepStrictEqual(listSnsByState(cfg, 'verified'), ['BBB']);
     assert.strictEqual(configuredLabelFromEntry(getStickEntry(cfg, 'BBB')), 'konfiguriert');
+    // Keep existing cloudStickRedirectSn when still in registry (AAA)
+    assert.strictEqual(cfg.cloudStickRedirectSn, 'AAA');
+
+    // Prefer localStickSn / devices feed over alpha-first proxy-only SN (GPG0…)
+    const multi = {
+        localStickSn: 'XGD6CK737N',
+        devices: [{ enabled: true, stickSn: 'XGD6CK737N' }],
+        stickRedirects: {
+            GPG0CHF1CT: { state: 'verified' },
+            XGD6CK737N: { state: 'verified' },
+            XGD6CJH2Y0: { state: 'pending' },
+        },
+    };
+    assert.strictEqual(deriveAggregateFlags(multi).cloudStickRedirectSn, 'XGD6CK737N');
+    const alphaOnly = {
+        stickRedirects: {
+            GPG0CHF1CT: { state: 'verified' },
+            XGD6CK737N: { state: 'verified' },
+        },
+    };
+    // No selection → first verified alphabetically still ok
+    assert.strictEqual(deriveAggregateFlags(alphaOnly).cloudStickRedirectSn, 'GPG0CHF1CT');
+    const deviceOnly = {
+        devices: [{ enabled: true, stickSn: 'XGD6CK737N' }],
+        stickRedirects: {
+            GPG0CHF1CT: { state: 'verified' },
+            XGD6CK737N: { state: 'verified' },
+        },
+    };
+    assert.strictEqual(deriveAggregateFlags(deviceOnly).cloudStickRedirectSn, 'XGD6CK737N');
 
     // remove one stick — other remains
     assert.strictEqual(removeStick(cfg, 'AAA'), true);

@@ -64,6 +64,8 @@ async function run(adapter, message) {
     assert.strictEqual(localRes.native.pollingTemplate, 'local');
     assert.strictEqual(localRes.native.pollIntervalS, TEMPLATES.local.pollIntervalS);
     assert.strictEqual(localRes.native.smoothIntervalS, TEMPLATES.local.smoothIntervalS);
+    assert.strictEqual(localRes.native.emaTauS, TEMPLATES.local.emaTauS);
+    assert.strictEqual(TEMPLATES.local.emaTauS, 3);
     const pacLocal = localRes.native.inverterVars.find((r) => r.id === 'pac');
     assert.strictEqual(pacLocal.intervalS, getCatalogEntry('pac').localIntervalS);
     const eLocal = localRes.native.inverterVars.find((r) => r.id === 'eTotal');
@@ -94,6 +96,7 @@ async function run(adapter, message) {
             pollIntervalS: openapiRes.native.pollIntervalS,
             nightPollIntervalS: openapiRes.native.nightPollIntervalS,
             smoothIntervalS: openapiRes.native.smoothIntervalS,
+            emaTauS: openapiRes.native.emaTauS,
         },
         TEMPLATES.openapi,
     );
